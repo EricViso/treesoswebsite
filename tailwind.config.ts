@@ -24,6 +24,17 @@ const config: Config = {
           dark: "#2F6E2A",
           soft: "#EAF6E9",
         },
+        // dark-mode surfaces (near-black, faintly blue) + foreground scale
+        base: {
+          DEFAULT: "#0A0E16", // page background
+          raised: "#10182A", // cards / elevated surfaces
+          rail: "#0D1422", // nav / footers
+        },
+        fg: {
+          DEFAULT: "#E7ECF3", // primary text on dark
+          muted: "#93A1B4", // secondary text on dark
+          faint: "#5C6B80", // tertiary / hairline labels
+        },
         ink: "#141413",
         muted: "#5D6B7E",
         line: "#E3E6EA",
