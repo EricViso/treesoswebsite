@@ -15,6 +15,8 @@ export type HeroDarkProps = {
   aiBadge?: boolean;
   /** Compliance band items; omit to hide the band. */
   compliance?: string[];
+  /** Wordmark lockup: product (Treelance by Trees OS) or company (Trees OS). */
+  wordmarkVariant?: "product" | "company";
 };
 
 /**
@@ -29,6 +31,7 @@ export function HeroDark({
   secondary,
   aiBadge = true,
   compliance,
+  wordmarkVariant = "product",
 }: HeroDarkProps) {
   return (
     <header className="relative overflow-hidden bg-base py-7 text-fg">
@@ -51,7 +54,7 @@ export function HeroDark({
       <Container width="wide" className="relative z-10">
         {/* top bar */}
         <div className="flex items-center justify-between py-2">
-          <Wordmark />
+          <Wordmark variant={wordmarkVariant} />
           {aiBadge && <AiDrivenBadge />}
         </div>
 

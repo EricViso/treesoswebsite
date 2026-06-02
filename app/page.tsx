@@ -63,7 +63,11 @@ export default function Home() {
         <div className="mt-10 text-[13px] text-white/45">
           Also:{" "}
           <Link href="/v2" className="text-moss-soft hover:underline">
-            dark direction preview →
+            Treelance product (dark) →
+          </Link>
+          {"  ·  "}
+          <Link href="/company" className="text-moss-soft hover:underline">
+            Trees OS company →
           </Link>
           {"  ·  "}
           <a href="/dashboard.html" className="text-moss-soft hover:underline" target="_blank" rel="noopener noreferrer">

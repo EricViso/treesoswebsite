@@ -8,14 +8,19 @@ import { cn } from "@/lib/cn";
 export function Wordmark({
   endorsed = true,
   tone = "light",
+  variant = "product",
   className,
 }: {
-  /** Show the "by Trees OS" company lockup. */
+  /** Show the "by Trees OS" company lockup (product variant only). */
   endorsed?: boolean;
   /** "light" for dark backgrounds, "dark" for light backgrounds. */
   tone?: "light" | "dark";
+  /** "product" → Treelance by Trees OS · "company" → Trees OS. */
+  variant?: "product" | "company";
   className?: string;
 }) {
+  const lead = variant === "company" ? brand.company : brand.name;
+  const showEndorse = endorsed && variant === "product";
   return (
     <span className={cn("inline-flex items-baseline gap-2", className)}>
       <span
@@ -24,9 +29,9 @@ export function Wordmark({
           tone === "light" ? "text-white" : "text-navy",
         )}
       >
-        {brand.name}
+        {lead}
       </span>
-      {endorsed && (
+      {showEndorse && (
         <span
           className={cn(
             "font-mono text-[10px] font-semibold uppercase tracking-[0.12em]",
