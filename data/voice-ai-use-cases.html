@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice AI Use Cases — Treelance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fef6e8;
+    --bg-deep: #f8e9c8;
+    --ink: #1a1320;
+    --paper: #ffffff;
+
+    --c1: #e8533f;   /* coral - qualify */
+    --c1-soft: #fde0d9;
+    --c2: #f5a524;   /* amber - re-engage */
+    --c2-soft: #fdecc8;
+    --c3: #6b8e3e;   /* olive - recruiter */
+    --c3-soft: #e2ecce;
+    --c4: #d63384;   /* magenta - match confirm */
+    --c4-soft: #fbd5e8;
+    --c5: #4267b2;   /* azure - interview prep */
+    --c5-soft: #d6e0f3;
+    --c6: #6b3aa0;   /* violet - debrief */
+    --c6-soft: #e6d8f3;
+
+    --aside1: #2d8b8a;  /* teal - separate */
+    --aside1-soft: #cfe9e8;
+    --aside2: #d97757;  /* clay - optional */
+    --aside2-soft: #fae0d2;
+
+    --line: #e7d9b8;
+    --muted: #6b5d4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse 800px 400px at 10% -5%, rgba(232,83,63,0.12), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 95% 8%, rgba(245,165,36,0.18), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 80% 95%, rgba(107,58,160,0.10), transparent 60%),
+      radial-gradient(ellipse 500px 350px at 5% 70%, rgba(45,139,138,0.10), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 72px 48px 100px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    padding: 8px 16px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--c1);
+    box-shadow: 0 0 0 3px rgba(232,83,63,0.25);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 96px;
+    line-height: 0.92;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--c1) 0%, var(--c4) 35%, var(--c6) 70%, var(--c5) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px dashed var(--ink);
+  }
+
+  .meta-chip {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    padding: 6px 14px;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 100px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .meta-chip strong {
+    color: var(--c1);
+  }
+
+  /* ===== Intro ===== */
+  .intro {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    line-height: 1.45;
+    color: var(--ink);
+    max-width: 780px;
+    margin: 56px 0 64px;
+    font-weight: 400;
+  }
+
+  .intro b {
+    background: linear-gradient(180deg, transparent 60%, var(--c2-soft) 60%, var(--c2-soft) 92%, transparent 92%);
+    font-weight: 600;
+    padding: 0 4px;
+  }
+
+  /* ===== Pipeline ===== */
+  .pipeline {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pipeline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 0% 50%, rgba(232,83,63,0.25), transparent 30%),
+      radial-gradient(circle at 100% 50%, rgba(107,58,160,0.25), transparent 30%);
+    pointer-events: none;
+  }
+
+  .pipeline-label {
+    color: var(--bg);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    margin-bottom: 18px;
+    opacity: 0.6;
+    position: relative;
+  }
+
+  .pipeline-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .pipeline-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background: var(--paper);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .pipeline-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 -2px rgba(255,255,255,0.15);
+  }
+
+  .pipeline-step .num {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .pipeline-step.s1 .num { background: var(--c1); }
+  .pipeline-step.s2 .num { background: var(--c2); }
+  .pipeline-step.s3 .num { background: var(--c3); }
+  .pipeline-step.s4 .num { background: var(--c4); }
+  .pipeline-step.s5 .num { background: var(--c5); }
+  .pipeline-step.s6 .num { background: var(--c6); }
+
+  .pipeline-arrow {
+    color: rgba(255,255,255,0.35);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* ===== Section heading ===== */
+  .section-heading {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+
+  .section-heading h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .section-heading .sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  /* ===== Use case cards ===== */
+  .cards {
+    display: grid;
+    gap: 28px;
+    margin-bottom: 96px;
+  }
+
+  .card {
+    background: var(--paper);
+    border-radius: 24px;
+    padding: 40px 44px;
+    position: relative;
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    scroll-margin-top: 40px;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 12px 12px 0 var(--ink);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--accent);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+
+  .card-num {
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    border-radius: 24px;
+    background: var(--accent);
+    color: white;
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .card-titles { flex: 1; padding-top: 6px; }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .when-tag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--accent-deep, var(--accent));
+    padding: 6px 12px;
+    background: var(--accent-soft);
+    border-radius: 100px;
+  }
+
+  .items {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    padding-top: 8px;
+  }
+
+  .items li {
+    padding-left: 36px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 22px;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--accent);
+    opacity: 0.85;
+  }
+
+  .items strong {
+    font-weight: 700;
+    color: var(--accent-deep, var(--accent));
+  }
+
+  /* per-card accent assignment */
+  .card.c1 { --accent: var(--c1); --accent-soft: var(--c1-soft); }
+  .card.c2 { --accent: var(--c2); --accent-soft: var(--c2-soft); }
+  .card.c3 { --accent: var(--c3); --accent-soft: var(--c3-soft); }
+  .card.c4 { --accent: var(--c4); --accent-soft: var(--c4-soft); }
+  .card.c5 { --accent: var(--c5); --accent-soft: var(--c5-soft); }
+  .card.c6 { --accent: var(--c6); --accent-soft: var(--c6-soft); }
+
+  /* ===== Aside section ===== */
+  .aside-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .aside {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    padding: 36px 40px;
+    box-shadow: 8px 8px 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .aside.a1 { background: linear-gradient(160deg, #ffffff 0%, var(--aside1-soft) 100%); }
+  .aside.a2 { background: linear-gradient(160deg, #ffffff 0%, var(--aside2-soft) 100%); }
+
+  .aside-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  .a1 .aside-tag { background: var(--aside1); }
+  .a2 .aside-tag { background: var(--aside2); }
+
+  .aside h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+
+  .aside .lede {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .aside ul {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+
+  .aside ul li {
+    font-size: 14.5px;
+    line-height: 1.5;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .a1 ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    color: var(--aside1);
+    font-size: 12px;
+  }
+
+  .a2 ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 2px;
+    top: 0px;
+    color: var(--aside2);
+    font-size: 14px;
+  }
+
+  .aside ul li strong {
+    font-weight: 700;
+  }
+
+  .a1 ul li strong { color: var(--aside1); }
+  .a2 ul li strong { color: var(--aside2); }
+
+  .aside ul li code {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 13px;
+    background: rgba(0,0,0,0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    margin-top: 100px;
+    padding: 40px;
+    border-radius: 20px;
+    background: var(--ink);
+    color: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(232,83,63,0.2), transparent 40%),
+      radial-gradient(circle at 80% 50%, rgba(107,58,160,0.2), transparent 40%);
+  }
+
+  footer span {
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  footer .mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 18px;
+    background: linear-gradient(90deg, var(--c1), var(--c2), var(--c4), var(--c6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  footer .dots {
+    position: relative;
+    display: inline-flex;
+    gap: 8px;
+  }
+
+  .dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+  }
+  .dots i:nth-child(1) { background: var(--c1); }
+  .dots i:nth-child(2) { background: var(--c2); }
+  .dots i:nth-child(3) { background: var(--c3); }
+  .dots i:nth-child(4) { background: var(--c4); }
+  .dots i:nth-child(5) { background: var(--c5); }
+  .dots i:nth-child(6) { background: var(--c6); }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 800px) {
+    .container { padding: 48px 20px 80px; }
+    h1 { font-size: 56px; }
+    .intro { font-size: 19px; }
+    .section-heading { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .section-heading h2 { font-size: 32px; }
+    .card { padding: 28px 24px; box-shadow: 5px 5px 0 var(--ink); }
+    .card-head { flex-direction: column; gap: 16px; }
+    .card-num { width: 64px; height: 64px; font-size: 36px; border-radius: 16px; }
+    .card-title { font-size: 26px; }
+    .aside-grid { grid-template-columns: 1fr; }
+    .aside { padding: 28px 24px; box-shadow: 5px 5px 0 var(--ink); }
+    .pipeline { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span> Treelance · Product Roadmap</div>
+    <h1>Voice AI<br><em>Use Cases</em></h1>
+    <div class="header-meta">
+      <div class="meta-chip"><strong>v1</strong> · Internal brief</div>
+      <div class="meta-chip">8 May 2026</div>
+      <div class="meta-chip">Author · Eric Viso</div>
+      <div class="meta-chip"><strong>6</strong> core flows</div>
+    </div>
+  </header>
+
+  <p class="intro">
+    A voice AI layer comes after the WhatsApp pipeline — designed for the moments where typing falls short and <b>tone, hesitation, and authenticity</b> actually matter. This brief sequences the use cases in pipeline order, from first qualification to post-interview debrief.
+  </p>
+
+  <nav class="pipeline" aria-label="Pipeline overview">
+    <div class="pipeline-label">The pipeline</div>
+    <div class="pipeline-track">
+      <a href="#uc-1" class="pipeline-step s1"><span class="num">1</span> Qualify</a>
+      <span class="pipeline-arrow">→</span>
+      <a href="#uc-2" class="pipeline-step s2"><span class="num">2</span> Re-engage</a>
+      <span class="pipeline-arrow">→</span>
+      <a href="#uc-3" class="pipeline-step s3"><span class="num">3</span> Recruiter</a>
+      <span class="pipeline-arrow">→</span>
+      <a href="#uc-4" class="pipeline-step s4"><span class="num">4</span> Match Confirm</a>
+      <span class="pipeline-arrow">→</span>
+      <a href="#uc-5" class="pipeline-step s5"><span class="num">5</span> Interview Prep</a>
+      <span class="pipeline-arrow">→</span>
+      <a href="#uc-6" class="pipeline-step s6"><span class="num">6</span> Debrief</a>
+    </div>
+  </nav>
+
+  <div class="section-heading">
+    <h2>Core sequence</h2>
+    <span class="sub">six flows, in pipeline order</span>
+  </div>
+
+  <div class="cards">
+
+    <article class="card c1" id="uc-1">
+      <div class="card-head">
+        <div class="card-num">01</div>
+        <div class="card-titles">
+          <div class="card-title">Qualification &amp; Verification</div>
+          <span class="when-tag">First voice touchpoint after WhatsApp onboarding</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>Availability confirmation</strong> — verbal "yes I can start Nov 15" catches hedging that text hides</li>
+        <li><strong>Work auth deep-dive</strong> — visa type, expiry, sponsorship needs, relocation appetite</li>
+        <li><strong>Rate negotiation</strong> — voice reads hesitation and probes "is X negotiable?"</li>
+        <li><strong>Language fluency check</strong> — typed English ≠ spoken English; critical for client-facing roles</li>
+        <li><strong>CV gap probing</strong> — "walk me through the 18-month gap in 2023"</li>
+      </ul>
+    </article>
+
+    <article class="card c2" id="uc-2">
+      <div class="card-head">
+        <div class="card-num">02</div>
+        <div class="card-titles">
+          <div class="card-title">Re-engagement</div>
+          <span class="when-tag">Dormant candidate availability refresh</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>Cold pool revival</strong> — voice gets answered when WhatsApp gets ignored</li>
+        <li><strong>Maybe-available check-ins</strong> — every 2-4 weeks, light status pulse</li>
+        <li><strong>Stuck-conversation rescue</strong> — escalation when the WhatsApp router detects loop or frustration</li>
+      </ul>
+    </article>
+
+    <article class="card c3" id="uc-3">
+      <div class="card-head">
+        <div class="card-num">03</div>
+        <div class="card-titles">
+          <div class="card-title">Recruiter-Side Calls</div>
+          <span class="when-tag">Voice as input from the demand side</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>JD intake call</strong> — capture the real requirements vs the sanitized JD</li>
+        <li><strong>Match feedback</strong> — "why did you reject candidate X?" → calibrates the matching model</li>
+        <li><strong>Daily standup</strong> — status of active roles in 90 seconds, by voice</li>
+        <li><strong>Escalation calls</strong> — high-priority roles with no movement</li>
+      </ul>
+    </article>
+
+    <article class="card c4" id="uc-4">
+      <div class="card-head">
+        <div class="card-num">04</div>
+        <div class="card-titles">
+          <div class="card-title">Match Confirmation</div>
+          <span class="when-tag">After the client shows interest in the candidate</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>Genuine interest probe</strong> — distinguish "polite yes" from real enthusiasm</li>
+        <li><strong>Conflict-of-interest disclosure</strong> — already interviewing elsewhere? notice period running?</li>
+        <li><strong>Last-mile detail capture</strong> — preferred name, pronunciation, comms style</li>
+        <li><strong>Recruiter pre-brief</strong> — what the client actually needs that wasn't in the JD</li>
+      </ul>
+    </article>
+
+    <article class="card c5" id="uc-5">
+      <div class="card-head">
+        <div class="card-num">05</div>
+        <div class="card-titles">
+          <div class="card-title">Interview Preparation</div>
+          <span class="when-tag">After the client confirms they will interview</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>Role &amp; company briefing</strong> — team, product, interview format</li>
+        <li><strong>Mock interview</strong> — practice likely questions, capture readiness signal</li>
+        <li><strong>Weakness coaching</strong> — frame the gap, soften the rough edge</li>
+        <li><strong>Day-of confirmation call</strong> — proactively reduce no-shows</li>
+      </ul>
+    </article>
+
+    <article class="card c6" id="uc-6">
+      <div class="card-head">
+        <div class="card-num">06</div>
+        <div class="card-titles">
+          <div class="card-title">Post-Interview Debrief</div>
+          <span class="when-tag">Last touchpoint in the core sequence</span>
+        </div>
+      </div>
+      <ul class="items">
+        <li><strong>Candidate debrief</strong> — captures red flags before the recruiter pushes the offer</li>
+        <li><strong>Recruiter debrief</strong> — structured feedback by voice, faster than a form</li>
+        <li><strong>Refined salary expectations</strong> — post-interview anchor often shifts</li>
+        <li><strong>Counter-offer scenario probing</strong> — "if your employer counters, what would it take to keep you?"</li>
+        <li><strong>Post-placement check-ins</strong> — week 1 / month 1 / month 3 retention signal</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <div class="aside-grid">
+
+    <aside class="aside a1">
+      <span class="aside-tag">◆ Separate flows</span>
+      <h3>Out-of-sequence use cases</h3>
+      <p class="lede">Different consent model, different scope.</p>
+      <ul>
+        <li><strong>Reference calls</strong> — calling the references the candidate provided; entirely different consent and disclosure flow</li>
+        <li><strong>Identity / fraud check</strong> — light KYC voice match for high-trust placements; optional, unlikely near-term</li>
+      </ul>
+    </aside>
+
+    <aside class="aside a2">
+      <span class="aside-tag">✦ Optional</span>
+      <h3>Cross-cutting capabilities</h3>
+      <p class="lede">Capabilities, not standalone flows.</p>
+      <ul>
+        <li><strong>Post-offer deployment logistics</strong> — trip arrangements, visa processing, mobilization paperwork; rare, high-touch placements only</li>
+        <li><strong>Multi-language</strong> — Bahasa, Tagalog, Mandarin for the SEA pool</li>
+        <li><strong>Accessibility</strong> — for low-chat-engagement candidates</li>
+        <li><strong>Sentiment &amp; authenticity detection</strong> — coaching vs genuine, across all flows</li>
+        <li><strong>Bulk activation campaigns</strong> — cold-call dormant pools at scale</li>
+        <li><strong>GDPR-compliant recording</strong> — disclosed, consented, transcribed into <code>_conversation</code></li>
+        <li><strong>Outcome loop seeding</strong> — every voice call → structured signal feeding match calibration</li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer>
+    <span>Treelance · Internal · Confidential</span>
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="mark">— end of brief —</span>
+  </footer>
+
+</div>
+</body>
+</html>

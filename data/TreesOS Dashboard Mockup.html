@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trees OS — Live Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B3862; --navy-deep:#0F2440; --navy-rail:#142e54;
+    --green:#58B451; --green-dk:#2F6E2A; --green-soft:#eaf6e9;
+    --ink:#16202e; --muted:#6c7a8d; --line:#e4e8ee;
+    --bg:#eef1f5; --card:#ffffff; --amber:#c98a18; --amber-bg:#fdf3e0;
+    --red:#b23b3b; --red-bg:#fbeaea;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+
+  /* SIDEBAR */
+  .side{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:#fff;padding:22px 16px;position:relative;
+  }
+  .side::after{content:'';position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:30px 30px;mask-image:radial-gradient(120% 60% at 30% 0,#000,transparent 75%)}
+  .brand{display:flex;align-items:center;gap:9px;padding:4px 8px 26px;position:relative;z-index:1}
+  .brand .mk{font-weight:900;font-size:19px;letter-spacing:-.5px}
+  .brand .os{font-family:var(--mono);font-size:11px;font-weight:600;color:#0e2a0c;background:var(--green);padding:2px 7px;border-radius:5px}
+  .navlbl{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);padding:0 8px;margin:16px 0 8px;position:relative;z-index:1}
+  .nav{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
+  .nav a{display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:500;padding:9px 10px;border-radius:8px;transition:.15s}
+  .nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+  .nav a.on{background:rgba(88,180,81,.16);color:#fff}
+  .nav a.on .ic{color:var(--green)}
+  .nav .ic{width:17px;text-align:center;opacity:.9}
+  .nav a .tag{margin-left:auto;font-family:var(--mono);font-size:10px;background:rgba(255,255,255,.12);padding:1px 6px;border-radius:20px;color:#cfe9cc}
+  .side-foot{position:absolute;bottom:18px;left:16px;right:16px;z-index:1;border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+  .agent-stat{display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(255,255,255,.7)}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(88,180,81,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(88,180,81,.5)}70%{box-shadow:0 0 0 7px rgba(88,180,81,0)}100%{box-shadow:0 0 0 0 rgba(88,180,81,0)}}
+
+  /* MAIN */
+  .main{display:flex;flex-direction:column;min-width:0}
+  .topbar{background:#fff;border-bottom:1px solid var(--line);padding:16px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .role-meta{min-width:0}
+  .role-kick{font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green-dk);margin-bottom:3px}
+  .role-title{font-weight:800;font-size:18px;letter-spacing:-.3px;color:var(--navy)}
+  .role-sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .role-sub b{color:var(--ink);font-weight:600}
+  .topbar .spacer{flex:1}
+  .live-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--green-dk);background:var(--green-soft);border:1px solid #cce8c9;padding:6px 12px;border-radius:100px}
+  .btn{font-family:var(--sans);font-weight:600;font-size:13px;border:none;cursor:pointer;padding:10px 16px;border-radius:9px;transition:.15s;display:inline-flex;align-items:center;gap:7px}
+  .btn-primary{background:var(--green);color:#0e2a0c}
+  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+  /* KPI STRIP */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:18px 26px 4px}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .kpi .l{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .kpi .v{font-weight:800;font-size:24px;letter-spacing:-1px;color:var(--navy);line-height:1}
+  .kpi .v small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+  .kpi .d{font-size:11px;color:var(--green-dk);margin-top:5px;font-weight:600}
+
+  /* ACTIVITY TICKER */
+  .ticker{margin:14px 26px 0;background:var(--navy);border-radius:10px;overflow:hidden;display:flex;align-items:center;height:38px;position:relative}
+  .ticker .lbl{flex-shrink:0;font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#0e2a0c;background:var(--green);height:100%;display:flex;align-items:center;padding:0 13px;font-weight:600}
+  .ticker .feed{overflow:hidden;flex:1;height:100%;position:relative}
+  .ticker .feed-track{position:absolute;display:flex;align-items:center;height:100%;white-space:nowrap;animation:scroll 34s linear infinite}
+  .ticker .feed-track span{color:rgba(255,255,255,.82);font-size:12.5px;padding:0 26px;border-right:1px solid rgba(255,255,255,.12);font-family:var(--mono)}
+  .ticker .feed-track span b{color:var(--green);font-weight:600}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* PIPELINE */
+  .pipe-wrap{padding:18px 26px 30px;overflow-x:auto}
+  .pipe{display:grid;grid-template-columns:repeat(5,minmax(228px,1fr));gap:14px;min-width:1160px}
+  .col-head{display:flex;align-items:center;gap:8px;margin-bottom:11px;padding:0 2px}
+  .col-dot{width:9px;height:9px;border-radius:50%}
+  .col-name{font-family:var(--mono);font-size:11px;letter-spacing:.5px;text-transform:uppercase;font-weight:600;color:var(--navy)}
+  .col-count{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:20px;padding:1px 8px}
+  .col-body{display:flex;flex-direction:column;gap:10px;min-height:60px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px;cursor:pointer;transition:.14s;position:relative}
+  .card:hover{border-color:#b9c6d8;box-shadow:0 6px 18px rgba(27,56,98,.08);transform:translateY(-1px)}
+  .card .top{display:flex;align-items:flex-start;gap:10px;margin-bottom:9px}
+  .av{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--navy);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+  .card .nm{font-weight:700;font-size:13.5px;color:var(--ink);line-height:1.2}
+  .card .rl{font-size:11.5px;color:var(--muted);margin-top:1px}
+  .match{margin-left:auto;text-align:right;flex-shrink:0}
+  .match .pct{font-weight:800;font-size:15px;color:var(--green-dk);font-family:var(--mono);letter-spacing:-.5px}
+  .match .ml{font-size:9px;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+  .pill{font-size:10.5px;font-weight:500;padding:3px 8px;border-radius:20px;background:#eef2f7;color:#42546b;display:inline-flex;align-items:center;gap:4px}
+  .pill.ok{background:var(--green-soft);color:var(--green-dk)}
+  .pill.amber{background:var(--amber-bg);color:var(--amber)}
+  .pill.loc{background:#e9eff7;color:var(--navy)}
+  .agent-line{display:flex;align-items:center;gap:7px;margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);font-size:11px;color:var(--muted)}
+  .agent-line .wa{color:#1d9e54;font-weight:600}
+  .mini-pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  .card .invite{margin-top:11px;width:100%;justify-content:center;padding:8px}
+  .booked-line{display:flex;align-items:center;gap:7px;margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--green-dk);font-weight:600}
+
+  /* DRAWER */
+  .scrim{position:fixed;inset:0;background:rgba(15,36,64,.45);opacity:0;pointer-events:none;transition:.25s;z-index:40;backdrop-filter:blur(2px)}
+  .scrim.show{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:440px;max-width:94vw;background:#fff;z-index:50;transform:translateX(100%);transition:transform .28s cubic-bezier(.2,.7,.2,1);box-shadow:-20px 0 50px rgba(15,36,64,.2);display:flex;flex-direction:column}
+  .drawer.show{transform:translateX(0)}
+  .dh{background:linear-gradient(160deg,var(--navy),var(--navy-deep));color:#fff;padding:22px 24px;position:relative}
+  .dh .close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px}
+  .dh .close:hover{background:rgba(255,255,255,.2)}
+  .dh .d-av{width:48px;height:48px;border-radius:11px;background:var(--green);color:#0e2a0c;font-weight:800;font-size:18px;font-family:var(--mono);display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+  .dh .d-nm{font-weight:800;font-size:20px;letter-spacing:-.3px}
+  .dh .d-rl{font-size:13px;color:rgba(255,255,255,.7);margin-top:2px}
+  .dh .d-match{display:inline-flex;align-items:center;gap:7px;margin-top:13px;font-family:var(--mono);font-size:11.5px;background:rgba(88,180,81,.2);border:1px solid rgba(88,180,81,.5);color:#cfe9cc;padding:5px 11px;border-radius:100px}
+  .db{flex:1;overflow-y:auto;padding:20px 24px}
+  .sec-l{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-dk);margin:4px 0 11px}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+  .fact{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:11px 12px}
+  .fact .fl{font-size:10.5px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+  .fact .fv{font-weight:700;font-size:13.5px;color:var(--ink)}
+  .certs{display:flex;flex-direction:column;gap:7px;margin-bottom:22px}
+  .cert{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+  .cert .cn{font-weight:600;font-size:13px}
+  .cert .cs{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px}
+  .cs.valid{background:var(--green-soft);color:var(--green-dk)}
+  .cs.soon{background:var(--amber-bg);color:var(--amber)}
+  .cdot{width:8px;height:8px;border-radius:50%}
+  .cdot.valid{background:var(--green)}.cdot.soon{background:var(--amber)}
+
+  /* WhatsApp transcript */
+  .wa-box{background:#e9f3ec;border:1px solid #cfe6d6;border-radius:12px;padding:14px;margin-bottom:8px}
+  .wa-head{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#1d7a44;font-weight:600;margin-bottom:12px;font-family:var(--mono)}
+  .bub{max-width:86%;padding:8px 11px;border-radius:12px;font-size:12.5px;line-height:1.45;margin-bottom:7px;position:relative}
+  .bub.agent{background:#fff;border:1px solid #d8e6dd;border-bottom-left-radius:3px}
+  .bub.cand{background:#dcf8c6;margin-left:auto;border-bottom-right-radius:3px}
+  .bub .who{font-size:9.5px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.4px;color:#1d9e54;margin-bottom:3px;font-weight:600}
+  .bub.cand .who{color:#5a8a3a;text-align:right}
+  .consent{font-size:11px;color:var(--muted);font-style:italic;margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+
+  .d-foot{border-top:1px solid var(--line);padding:16px 24px;background:#fff}
+  .d-foot .btn{width:100%;justify-content:center;padding:13px}
+  .d-foot .booked{text-align:center;font-size:12.5px;color:var(--green-dk);font-weight:600;font-family:var(--mono)}
+  .hm-note{font-size:11px;color:var(--muted);text-align:center;margin-top:8px}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:13px 20px;border-radius:11px;font-size:13px;font-weight:500;box-shadow:0 14px 36px rgba(15,36,64,.3);opacity:0;pointer-events:none;transition:.3s;z-index:60;display:flex;align-items:center;gap:10px}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast .tk{width:22px;height:22px;border-radius:6px;background:var(--green);color:#0e2a0c;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+  .demo-note{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:center;padding:10px;letter-spacing:.3px}
+
+  @media(max-width:880px){
+    .app{grid-template-columns:1fr}
+    .side{display:none}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand"><span class="mk">Trees</span><span class="os">OS</span></div>
+    <div class="navlbl">Workspace</div>
+    <nav class="nav">
+      <a href="#" class="on"><span class="ic">▦</span> Dashboard</a>
+      <a href="#"><span class="ic">⊞</span> Open roles <span class="tag">3</span></a>
+      <a href="#"><span class="ic">◍</span> Workforce graph <span class="tag">2.4k</span></a>
+      <a href="#"><span class="ic">⌘</span> Matching taxonomy</a>
+      <a href="#"><span class="ic">◷</span> Interviews</a>
+    </nav>
+    <div class="navlbl">Agent fleet</div>
+    <nav class="nav">
+      <a href="#"><span class="ic">✦</span> Re-engagement</a>
+      <a href="#"><span class="ic">✦</span> Pre-screening</a>
+      <a href="#"><span class="ic">✦</span> Cert monitor</a>
+    </nav>
+    <div class="side-foot">
+      <div class="agent-stat"><span class="pulse"></span> 4 agents active</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <div class="role-meta">
+        <div class="role-kick">Open role · pilot</div>
+        <div class="role-title">Senior Commissioning Engineer</div>
+        <div class="role-sub"><b>LNG</b> · Bintulu, Malaysia · <b>12-month</b> project · start <b>≤ 3 weeks</b></div>
+      </div>
+      <div class="spacer"></div>
+      <span class="live-chip"><span class="mini-pulse"></span> agents running · posted 19h ago</span>
+      <button class="btn btn-primary" onclick="toast('Role brief opened — agents will re-scan the pool')">＋ Post a role</button>
+    </div>
+
+    <!-- KPIs (mirror pilot targets) -->
+    <div class="kpis">
+      <div class="kpi"><div class="l">Time to first shortlist</div><div class="v">18<small> h</small></div><div class="d">▼ target &lt; 24h</div></div>
+      <div class="kpi"><div class="l">Recruiter hours saved</div><div class="v">~9<small> h</small></div><div class="d">vs manual chase</div></div>
+      <div class="kpi"><div class="l">Consent-verified</div><div class="v">100<small> %</small></div><div class="d">double opt-in</div></div>
+      <div class="kpi"><div class="l">Cert surprises</div><div class="v">0</div><div class="d">all checked at source</div></div>
+    </div>
+
+    <!-- ACTIVITY TICKER -->
+    <div class="ticker">
+      <div class="lbl">● Live agent feed</div>
+      <div class="feed"><div class="feed-track" id="track"></div></div>
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="pipe-wrap">
+      <div class="pipe" id="pipe"></div>
+    </div>
+    <div class="demo-note" id="demoNote">Interactive mock-up · click any candidate to open the profile + WhatsApp pre-screening · approve a shortlist to see the loop close</div>
+  </main>
+</div>
+
+<!-- DRAWER -->
+<div class="scrim" id="scrim" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="tk">✓</span><span id="toastMsg"></span></div>
+
+<script>
+/* ---------- DATA ---------- */
+const stages = [
+  {id:"matched",  name:"Matched by taxonomy", dot:"#8aa0bd"},
+  {id:"engaging", name:"Agent engaging",       dot:"#c98a18"},
+  {id:"qualified",name:"Qualified · said yes", dot:"#58B451"},
+  {id:"await",    name:"Awaiting your OK",      dot:"#1B3862"},
+  {id:"booked",   name:"Interview booked",      dot:"#2F6E2A"},
+];
+
+let candidates = [
+  {id:1, nm:"Lim Wei Sheng", rl:"Commissioning Engineer · 8y LNG", init:"LW", match:96, stage:"await",
+    avail:"In 2 weeks", notice:"Finishing contract", loc:"Kuala Lumpur", mob:"Mobile · SE Asia", rate:"USD 650/day",
+    why:"8y LNG commissioning · CSWIP + BOSIET valid · available in window",
+    certs:[{n:"BOSIET",s:"valid",e:"valid to Jan 2027"},{n:"CSWIP 3.1",s:"valid",e:"valid to Aug 2026"},{n:"H2S",s:"soon",e:"expires in 41 days"}],
+    wa:[
+      {w:"agent",t:"Hi Lim — Trees OS agent for the operator. You're in the verified LNG commissioning pool. A 12-month role just opened in Bintulu. Interested?"},
+      {w:"cand",t:"Yes, could be."},
+      {w:"agent",t:"Can you start within 3 weeks?"},
+      {w:"cand",t:"Yes, current contract ends this month."},
+      {w:"agent",t:"Is your BOSIET still valid?"},
+      {w:"cand",t:"Yes, renewed in January."},
+      {w:"agent",t:"Day-rate expectation for a 12-month LNG project?"},
+      {w:"cand",t:"Around USD 650/day."},
+      {w:"agent",t:"Noted — you're confirmed and shortlisted. Recruiter will review and may invite you. I'll message the moment there's a slot."},
+    ]},
+  {id:2, nm:"Nurul Aisyah", rl:"Commissioning Engineer · 6y", init:"NA", match:91, stage:"await",
+    avail:"Immediate", notice:"On the bench", loc:"Johor", mob:"Mobile · domestic", rate:"USD 580/day",
+    why:"6y process commissioning · immediately available · domestic mobilisation",
+    certs:[{n:"BOSIET",s:"valid",e:"valid to Mar 2027"},{n:"NEBOSH IGC",s:"valid",e:"valid"},{n:"Confined Space",s:"valid",e:"valid to Nov 2026"}],
+    wa:[
+      {w:"agent",t:"Hi Nurul — Trees OS agent. A 12-month LNG commissioning role opened in Bintulu. You're verified in our pool. Open to it?"},
+      {w:"cand",t:"Yes I'm available now."},
+      {w:"agent",t:"Great. Willing to mobilise to Sarawak?"},
+      {w:"cand",t:"Yes, no problem."},
+      {w:"agent",t:"BOSIET valid?"},
+      {w:"cand",t:"Yes."},
+      {w:"agent",t:"Confirmed and shortlisted. The recruiter will review next."},
+    ]},
+  {id:3, nm:"Rahman Idris", rl:"Sr. Commissioning Eng · 11y", init:"RI", match:88, stage:"qualified",
+    avail:"In 4 weeks", notice:"4 weeks", loc:"Singapore", mob:"Mobile · regional", rate:"USD 720/day",
+    why:"11y incl. 2 LNG startups · regional mobility · notice 4 weeks",
+    certs:[{n:"BOSIET",s:"valid",e:"valid to Jun 2026"},{n:"CSWIP 3.2",s:"valid",e:"valid"},{n:"IRATA L1",s:"valid",e:"valid"}],
+    wa:[
+      {w:"agent",t:"Hi Rahman — Trees OS agent. 12-month LNG commissioning role, Bintulu. You're in the verified pool. Interested?"},
+      {w:"cand",t:"Possibly. What's the rate range?"},
+      {w:"agent",t:"Targeting USD 680–740/day for this seniority. Works?"},
+      {w:"cand",t:"Yes that works. I have 4 weeks notice."},
+      {w:"agent",t:"Noted — confirmed and qualified. Surfacing you to the recruiter now."},
+    ]},
+  {id:4, nm:"Chai Mun Yee", rl:"Commissioning Engineer · 7y", init:"CM", match:84, stage:"qualified",
+    avail:"In 3 weeks", notice:"3 weeks", loc:"Miri", mob:"Local · Sarawak", rate:"USD 600/day",
+    why:"Sarawak-based · local mobilisation · 7y E&I commissioning",
+    certs:[{n:"BOSIET",s:"valid",e:"valid to Sep 2026"},{n:"CSWIP 3.1",s:"soon",e:"expires in 28 days"}],
+    wa:[
+      {w:"agent",t:"Hi Chai — Trees OS agent. LNG commissioning role in Bintulu, 12 months. You're local to Sarawak and verified. Interested?"},
+      {w:"cand",t:"Yes, that's close to home."},
+      {w:"agent",t:"Your CSWIP expires in ~4 weeks — can you renew before mobilisation?"},
+      {w:"cand",t:"Yes, renewal already booked."},
+      {w:"agent",t:"Perfect, flagged for the recruiter. Confirmed and qualified."},
+    ]},
+  {id:5, nm:"Arif Hakim", rl:"Commissioning Engineer · 5y", init:"AH", match:79, stage:"engaging",
+    avail:"Checking…", notice:"—", loc:"Kuala Lumpur", mob:"—", rate:"—",
+    why:"5y commissioning · agent verifying availability + certs",
+    certs:[{n:"BOSIET",s:"valid",e:"valid"}],
+    wa:[
+      {w:"agent",t:"Hi Arif — Trees OS agent. A 12-month LNG commissioning role just opened in Bintulu. You're verified in our pool. Are you available in the next month?"},
+    ]},
+  {id:6, nm:"Siti Hajar", rl:"Process Commissioning · 9y", init:"SH", match:77, stage:"engaging",
+    avail:"Checking…", notice:"—", loc:"Penang", mob:"—", rate:"—",
+    why:"9y process · invite sent by email + WhatsApp opened",
+    certs:[{n:"BOSIET",s:"soon",e:"expires in 60 days"}],
+    wa:[
+      {w:"agent",t:"Hi Siti — Trees OS agent. LNG commissioning role in Bintulu, 12 months. Interested in hearing more?"},
+    ]},
+  {id:7, nm:"David Tan", rl:"Commissioning Lead · 13y", init:"DT", match:72, stage:"matched",
+    avail:"—", notice:"—", loc:"Singapore", mob:"—", rate:"—",
+    why:"Matched on taxonomy · senior · re-engagement queued",
+    certs:[], wa:[]},
+  {id:8, nm:"Farah Lutfi", rl:"E&I Commissioning · 6y", init:"FL", match:70, stage:"matched",
+    avail:"—", notice:"—", loc:"Kuantan", mob:"—", rate:"—",
+    why:"Matched on taxonomy · E&I focus · re-engagement queued",
+    certs:[], wa:[]},
+  {id:9, nm:"Hassan Omar", rl:"Commissioning Engineer · 7y", init:"HO", match:68, stage:"matched",
+    avail:"—", notice:"—", loc:"Labuan", mob:"—", rate:"—",
+    why:"Matched on taxonomy · offshore background · queued",
+    certs:[], wa:[]},
+];
+
+/* ---------- RENDER PIPELINE ---------- */
+function render(){
+  const pipe = document.getElementById("pipe");
+  pipe.innerHTML = "";
+  stages.forEach(st=>{
+    const list = candidates.filter(c=>c.stage===st.id);
+    const col = document.createElement("div");
+    col.innerHTML = `
+      <div class="col-head">
+        <span class="col-dot" style="background:${st.dot}"></span>
+        <span class="col-name">${st.name}</span>
+        <span class="col-count">${list.length}</span>
+      </div>
+      <div class="col-body">${list.map(c=>cardHTML(c)).join("")}</div>`;
+    pipe.appendChild(col);
+  });
+}
+
+function cardHTML(c){
+  let body = "";
+  if(c.stage==="matched"){
+    body = `<div class="meta-row"><span class="pill loc">📍 ${c.loc}</span></div>
+            <div class="agent-line"><span class="mini-pulse"></span> Re-engagement queued</div>`;
+  } else if(c.stage==="engaging"){
+    body = `<div class="meta-row"><span class="pill loc">📍 ${c.loc}</span></div>
+            <div class="agent-line"><span class="mini-pulse"></span> <span class="wa">Agent on WhatsApp</span> · pre-screening…</div>`;
+  } else if(c.stage==="qualified"){
+    body = `<div class="meta-row">
+              <span class="pill ok">✓ ${c.avail}</span>
+              <span class="pill loc">📍 ${c.loc}</span>
+              ${certPill(c)}
+            </div>
+            <div class="agent-line">✓ Confirmed interest · qualified by agent</div>`;
+  } else if(c.stage==="await"){
+    body = `<div class="meta-row">
+              <span class="pill ok">✓ ${c.avail}</span>
+              <span class="pill loc">📍 ${c.loc}</span>
+              ${certPill(c)}
+            </div>
+            <button class="btn btn-primary invite" onclick="event.stopPropagation();invite(${c.id})">✓ Invite to interview</button>`;
+  } else if(c.stage==="booked"){
+    body = `<div class="meta-row"><span class="pill ok">✓ ${c.avail}</span><span class="pill loc">📍 ${c.loc}</span></div>
+            <div class="booked-line">📅 ${c.slot||"Slot booked"} · hiring manager confirmed</div>`;
+  }
+  return `<div class="card" onclick="openDrawer(${c.id})">
+    <div class="top">
+      <div class="av">${c.init}</div>
+      <div style="min-width:0">
+        <div class="nm">${c.nm}</div>
+        <div class="rl">${c.rl}</div>
+      </div>
+      <div class="match"><div class="pct">${c.match}%</div><div class="ml">match</div></div>
+    </div>
+    ${body}
+  </div>`;
+}
+function certPill(c){
+  const soon = c.certs.find(x=>x.s==="soon");
+  if(soon) return `<span class="pill amber">⚠ ${soon.n} renew</span>`;
+  if(c.certs.length) return `<span class="pill ok">✓ certs valid</span>`;
+  return "";
+}
+
+/* ---------- DRAWER ---------- */
+function openDrawer(id){
+  const c = candidates.find(x=>x.id===id);
+  const d = document.getElementById("drawer");
+  const certHTML = c.certs.length ? c.certs.map(ct=>`
+    <div class="cert">
+      <span class="cdot ${ct.s}"></span>
+      <span class="cn">${ct.n}</span>
+      <span class="cs ${ct.s==='valid'?'valid':'soon'}">${ct.e}</span>
+    </div>`).join("") : `<div class="cert" style="color:var(--muted)">Not yet collected — agent gathers certs during pre-screening</div>`;
+
+  const waHTML = c.wa.length ? `
+    <div class="sec-l">WhatsApp pre-screening · by agent</div>
+    <div class="wa-box">
+      <div class="wa-head">⌁ Trees OS agent ⟷ ${c.nm.split(" ")[0]}</div>
+      ${c.wa.map(b=>`<div class="bub ${b.w}"><div class="who">${b.w==='agent'?'Agent':c.nm.split(" ")[0]}</div>${b.t}</div>`).join("")}
+    </div>
+    <div class="consent">🔒 <span>Candidate opted in to the workforce graph. Agent identifies itself on every contact — consent-first by design.</span></div>
+  ` : `<div class="sec-l">WhatsApp pre-screening</div>
+       <div class="wa-box" style="color:var(--muted);font-size:12.5px">Re-engagement queued. The agent opens the conversation once the candidate is reached.</div>`;
+
+  let foot = "";
+  if(c.stage==="await"){
+    foot = `<button class="btn btn-primary" onclick="invite(${c.id})">✓ Invite to interview</button>
+            <div class="hm-note">One click sends the invite · candidate self-books · hiring manager confirms</div>`;
+  } else if(c.stage==="booked"){
+    foot = `<div class="booked">📅 ${c.slot||'Slot booked'} · confirmed by hiring manager</div>`;
+  } else if(c.stage==="qualified"){
+    foot = `<div class="hm-note">Agent still finalising — moves to “Awaiting your OK” once fully confirmed</div>`;
+  } else {
+    foot = `<div class="hm-note">Agent is engaging this candidate now</div>`;
+  }
+
+  d.innerHTML = `
+    <div class="dh">
+      <button class="close" onclick="closeDrawer()">✕</button>
+      <div class="d-av">${c.init}</div>
+      <div class="d-nm">${c.nm}</div>
+      <div class="d-rl">${c.rl}</div>
+      <div class="d-match">◆ ${c.match}% match · ${c.why}</div>
+    </div>
+    <div class="db">
+      <div class="sec-l">Readiness</div>
+      <div class="facts">
+        <div class="fact"><div class="fl">Availability</div><div class="fv">${c.avail}</div></div>
+        <div class="fact"><div class="fl">Notice</div><div class="fv">${c.notice}</div></div>
+        <div class="fact"><div class="fl">Location</div><div class="fv">${c.loc}</div></div>
+        <div class="fact"><div class="fl">Mobility</div><div class="fv">${c.mob}</div></div>
+        <div class="fact"><div class="fl">Day rate</div><div class="fv">${c.rate}</div></div>
+        <div class="fact"><div class="fl">Status</div><div class="fv">${stageLabel(c.stage)}</div></div>
+      </div>
+      <div class="sec-l">Certifications</div>
+      <div class="certs">${certHTML}</div>
+      ${waHTML}
+    </div>
+    <div class="d-foot">${foot}</div>`;
+  document.getElementById("scrim").classList.add("show");
+  d.classList.add("show");
+}
+function stageLabel(s){return ({matched:"Matched",engaging:"Agent engaging",qualified:"Qualified",await:"Awaiting your OK",booked:"Interview booked"})[s];}
+function closeDrawer(){document.getElementById("scrim").classList.remove("show");document.getElementById("drawer").classList.remove("show");}
+
+/* ---------- HUMAN-IN-THE-LOOP INVITE ---------- */
+const slots = ["Tue 10:00 · video","Wed 14:30 · video","Thu 09:00 · video","Mon 11:00 · video"];
+function invite(id){
+  const c = candidates.find(x=>x.id===id);
+  if(!c||c.stage==="booked") return;
+  c.stage="booked";
+  c.slot = slots[Math.floor(Math.random()*slots.length)];
+  closeDrawer();
+  render();
+  toast(`${c.nm} invited — self-booked ${c.slot}`);
+}
+
+/* ---------- TOAST ---------- */
+let toastT;
+function toast(msg){
+  const t=document.getElementById("toast");
+  document.getElementById("toastMsg").textContent=msg;
+  t.classList.add("show");
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>t.classList.remove("show"),3200);
+}
+
+/* ---------- LIVE TICKER ---------- */
+const feedItems = [
+  "Agent messaged <b>Arif H.</b> on WhatsApp — availability check",
+  "Cert verified · <b>BOSIET</b> for Nurul A. — valid to Mar 2027",
+  "<b>Lim W.</b> confirmed available in 2 weeks → qualified",
+  "Re-engagement email opened by <b>Siti H.</b>",
+  "⚠ <b>Chai M.</b> CSWIP expires in 28 days — renewal flagged",
+  "<b>Rahman I.</b> accepted rate range → qualified",
+  "Pool re-scanned against taxonomy · <b>9</b> matched for this role",
+  "Agent collected day-rate from <b>Lim W.</b> · USD 650/day",
+];
+(function initTicker(){
+  const track=document.getElementById("track");
+  const seq=feedItems.concat(feedItems); // duplicate for seamless loop
+  track.innerHTML=seq.map(t=>`<span>● ${t}</span>`).join("");
+})();
+
+render();
+</script>
+</body>
+</html>
