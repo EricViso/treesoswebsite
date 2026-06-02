@@ -1,44 +1,48 @@
-# Trees OS — Website
+# Treelance — Marketing site & template system
 
-Marketing site for **Trees OS**, the AI workforce-orchestration platform for the
-energy sector. It connects to a staffing agency's existing candidate database,
-keeps it live through AI agents on WhatsApp/Telegram, and surfaces qualified,
-consenting people for every open role.
+Next.js + Tailwind marketing kit for **Treelance**, the first product from
+**Trees OS** — workforce orchestration for **energy-sector staffing agencies / ESNs**.
 
 > The problem is not hiring. It is deployment.
 
-## Audience
+*Trees OS* is the company; *Treelance* is the product the marketing speaks as.
+The first client (Trees Engineering) is never referenced publicly.
 
-The site speaks to **energy staffing agencies / ESNs** — the people who pay for
-the service — not to candidates. The pitch: *make the candidate database you
-already own work for you.*
+## What's here
 
-## Structure
-
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| `index.html` | Single-page marketing site (hero, problem, how it works, live demo, pilot, FAQ, CTA). Self-contained — inline CSS, no build step. |
-| `dashboard.html` | Interactive dashboard demo (vanilla HTML/JS). Embedded in `index.html` via iframe and linked as a standalone full-screen demo. |
-| `assets/favicon.svg` | Brand mark (navy tile + green tree). |
-| `vercel.json` | Clean-URL config for Vercel. |
-| `data/` | Source material (proposal, presentation, strategy docs) — not deployed. |
+| `app/page.tsx` | Template gallery (the design-system landing). |
+| `app/templates/one-pager` | Full Treelance one-pager (`OnePager`). |
+| `app/templates/hero` | `Hero` template — three variants. |
+| `app/templates/speech` | `SpeechBlock` — long-form narrative template. |
+| `components/marketing/*` | Reusable components: `Hero`, `SpeechBlock`, `OnePager`, `Wordmark`, primitives. |
+| `lib/brand.ts` | Brand names, links, colour tokens — **single source of truth**. |
+| `lib/content.ts` | Marketing copy (kept out of layout). |
+| `tailwind.config.ts` | Design tokens (colour + type). |
+| `docs/MARKETING_DESIGN.md` | The marketing design file (brand, voice, tokens, components). |
+| `public/dashboard.html` | Interactive dashboard demo, embedded in the one-pager. |
+| `data/` | Source material — not deployed. |
 
-## Brand
-
-- Navy `#1B3862` / deep navy `#0f2440`
-- Green `#58B451`
-- Type: Inter (UI) + IBM Plex Mono (labels)
-
-## Run locally
-
-It's static — open `index.html`, or serve the folder:
+## Develop
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-## Deploy
+Routes: `/` (gallery) · `/templates/one-pager` · `/templates/hero` ·
+`/templates/speech` · `/dashboard.html`.
 
-Static deploy (e.g. Vercel). No framework, no build command — output directory
-is the repo root.
+## Build & deploy
+
+```bash
+npm run build && npm run start
+```
+
+Deploys to Vercel as a standard Next.js app (no extra config). Domain: `treesos.io`.
+
+## Re-brand in one place
+
+Change `name` / `presentedBy` / links in `lib/brand.ts`, and colour/type in
+`tailwind.config.ts`. Every template reads from these.
