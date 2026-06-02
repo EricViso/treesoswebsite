@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { brand } from "@/lib/brand";
 import { HeroDark } from "@/components/marketing/HeroDark";
-import { PhasePipeline } from "@/components/marketing/PhasePipeline";
 import { Container, Button, Hl } from "@/components/marketing/primitives";
 
 export const metadata: Metadata = {
@@ -78,26 +77,6 @@ export default function DarkDirection() {
                 <p className="mt-2 text-[14px] leading-[1.6] text-fg-muted">{s.body}</p>
               </div>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ROADMAP — the wedge → orchestration OS pipeline */}
-      <section className="border-t border-white/[0.06] bg-base py-20 text-fg">
-        <Container width="wide">
-          <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-            // the roadmap
-          </div>
-          <h2 className="mt-3 max-w-[24ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
-            One wedge today. The operating system for workforce agencies tomorrow.
-          </h2>
-          <p className="mt-4 max-w-[58ch] text-[16.5px] leading-[1.6] text-fg-muted">
-            Treelance is Phase 1 — the matching layer that earns its place on your
-            desk. From there, Trees OS grows into the full coordination
-            infrastructure for energy talent.
-          </p>
-          <div className="mt-12">
-            <PhasePipeline />
           </div>
         </Container>
       </section>
