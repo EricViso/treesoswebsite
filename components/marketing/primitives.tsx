@@ -55,6 +55,8 @@ type ButtonProps = {
   variant?: "primary" | "ghost";
   external?: boolean;
   className?: string;
+  /** Declarative analytics tag, e.g. "booking:hero" or "demo:open". */
+  track?: string;
 };
 
 export function Button({
@@ -63,11 +65,13 @@ export function Button({
   variant = "primary",
   external,
   className,
+  track,
 }: ButtonProps) {
   return (
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(track ? { "data-analytics": track } : {})}
       className={cn(
         "inline-flex items-center gap-2 rounded-[10px] px-6 py-3.5 text-[15px] font-semibold no-underline transition-transform duration-150",
         variant === "primary"

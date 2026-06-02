@@ -1,0 +1,55 @@
+name: Weekly analytics review
+
+# Runs the analyst agent on a schedule. It reads PostHog (via MCP) + the repo,
+# then opens a PR with one proposed improvement. A human merges. See
+# analytics/AGENT.md for the runbook.
+#
+# Required repository secrets:
+#   ANTHROPIC_API_KEY   - Claude API key
+#   POSTHOG_MCP_TOKEN   - PostHog personal API key (read), used by .mcp.json
+#
+# NOTE: confirm the `anthropics/claude-code-action` input names / flags against
+# its current README before relying on this — the action's interface evolves.
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # Mondays 08:00 UTC
+  workflow_dispatch: {} # allow manual runs for testing
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: analytics-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run analyst agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Follow the runbook in analytics/AGENT.md exactly, for this repository.
+            Use the PostHog MCP server to pull the data. Make at most one
+            high-leverage change to the marketing copy, write this cycle's report
+            under analytics/reports/, append a row to analytics/CHANGELOG.md, then
+            create a new branch, commit, and open a pull request with the report as
+            the PR body. Respect every guardrail in the runbook — do not touch
+            lib/brand.ts, brand names, pricing, or legal text.
+          claude_args: |
+            --mcp-config .mcp.json
+            --model claude-opus-4-8
+            --max-turns 40
+            --allowedTools "Bash,Read,Edit,Write,Glob,Grep,WebFetch"
+        env:
+          POSTHOG_MCP_TOKEN: ${{ secrets.POSTHOG_MCP_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,7 +3,13 @@ import { cn } from "@/lib/cn";
 import { Container, Button } from "./primitives";
 import { Wordmark } from "./Wordmark";
 
-export type HeroCta = { label: string; href: string; external?: boolean };
+export type HeroCta = {
+  label: string;
+  href: string;
+  external?: boolean;
+  /** Declarative analytics tag, e.g. "booking:hero". */
+  track?: string;
+};
 
 export type HeroProps = {
   /** Small uppercase badge above the headline (e.g. the audience). */
@@ -86,7 +92,11 @@ export function Hero({
               )}
             >
               {primary && (
-                <Button href={primary.href} external={primary.external}>
+                <Button
+                  href={primary.href}
+                  external={primary.external}
+                  track={primary.track}
+                >
                   {primary.label}
                 </Button>
               )}
@@ -95,6 +105,7 @@ export function Hero({
                   href={secondary.href}
                   variant="ghost"
                   external={secondary.external}
+                  track={secondary.track}
                 >
                   {secondary.label}
                 </Button>

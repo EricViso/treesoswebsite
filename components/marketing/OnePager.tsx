@@ -23,12 +23,12 @@ export function OnePager() {
           </>
         }
         lead="Your candidate database is the most valuable asset you own — and it dies a little every day. Treelance connects to the database you already have, keeps it live through a fleet of AI agents on WhatsApp and Telegram, and turns every open role into a shortlist of people who are available, certified, mobile and interested. You stop re-sourcing what you already paid for. Your recruiters place faster."
-        primary={{ label: "Bring us one open role →", href: brand.links.book, external: true }}
-        secondary={{ label: "See the live dashboard", href: "#demo" }}
+        primary={{ label: "Bring us one open role →", href: brand.links.book, external: true, track: "booking:hero" }}
+        secondary={{ label: "See the live dashboard", href: "#demo", track: "cta:see-demo" }}
       />
 
       {/* PROBLEM */}
-      <section className="bg-canvas py-[72px]">
+      <section data-section="problem" className="bg-canvas py-[72px]">
         <Container>
           <Kicker>{c.problem.kicker}</Kicker>
           <SectionHeading>{c.problem.title}</SectionHeading>
@@ -50,7 +50,7 @@ export function OnePager() {
       </section>
 
       {/* HOW */}
-      <section id="how" className="py-[72px]">
+      <section id="how" data-section="how" className="py-[72px]">
         <Container>
           <Kicker>how it works</Kicker>
           <SectionHeading>Three moves. One living database.</SectionHeading>
@@ -80,7 +80,7 @@ export function OnePager() {
       </section>
 
       {/* DEMO */}
-      <section id="demo" className="bg-navy py-[72px] text-white">
+      <section id="demo" data-section="demo" className="bg-navy py-[72px] text-white">
         <Container width="wide">
           <Kicker>see it live</Kicker>
           <h2 className="mb-4 max-w-[24ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-[-0.02em] text-white">
@@ -109,7 +109,7 @@ export function OnePager() {
             />
           </div>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Button href="/dashboard.html" external>
+            <Button href="/dashboard.html" external track="demo:open-full">
               Open the full dashboard ↗
             </Button>
           </div>
@@ -117,7 +117,7 @@ export function OnePager() {
       </section>
 
       {/* PAYOFF */}
-      <section className="bg-canvas py-[72px]">
+      <section data-section="payoff" className="bg-canvas py-[72px]">
         <Container>
           <Kicker>{c.payoff.kicker}</Kicker>
           <SectionHeading>{c.payoff.title}</SectionHeading>
@@ -139,7 +139,7 @@ export function OnePager() {
       </section>
 
       {/* HUMAN IN THE LOOP */}
-      <section className="py-[72px]">
+      <section data-section="loop" className="py-[72px]">
         <Container>
           <Kicker>{c.loop.kicker}</Kicker>
           <SectionHeading>{c.loop.title}</SectionHeading>
@@ -172,7 +172,7 @@ export function OnePager() {
       </section>
 
       {/* TRUST */}
-      <section className="bg-canvas py-[72px]">
+      <section data-section="trust" className="bg-canvas py-[72px]">
         <Container>
           <Kicker>{c.trust.kicker}</Kicker>
           <SectionHeading>{c.trust.title}</SectionHeading>
@@ -192,7 +192,7 @@ export function OnePager() {
       </section>
 
       {/* PILOT */}
-      <section id="pilot" className="py-[72px]">
+      <section id="pilot" data-section="pilot" className="py-[72px]">
         <Container>
           <Kicker>{c.pilot.kicker}</Kicker>
           <SectionHeading>{c.pilot.title}</SectionHeading>
@@ -216,7 +216,7 @@ export function OnePager() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-canvas py-[72px]">
+      <section id="faq" data-section="faq" className="bg-canvas py-[72px]">
         <Container>
           <Kicker>{c.faq.kicker}</Kicker>
           <SectionHeading>{c.faq.title}</SectionHeading>
@@ -235,7 +235,7 @@ export function OnePager() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-navy bg-[linear-gradient(160deg,#1B3862_0%,#0F2440_100%)] py-[76px] text-center text-white">
+      <section data-section="final-cta" className="bg-navy bg-[linear-gradient(160deg,#1B3862_0%,#0F2440_100%)] py-[76px] text-center text-white">
         <Container>
           <Kicker>let&apos;s begin</Kicker>
           <h2 className="mx-auto mb-3.5 max-w-[22ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-[-0.02em] text-white">
@@ -244,7 +244,7 @@ export function OnePager() {
           <p className="mx-auto mb-7 max-w-[52ch] text-[17px] text-white/[0.72]">
             Forty-five minutes to map it together — then we run your own role end to end, in the room. You decide on what you see, not on what we claim.
           </p>
-          <Button href={brand.links.book} external>
+          <Button href={brand.links.book} external track="booking:final">
             Bring us one open role →
           </Button>
         </Container>
@@ -282,7 +282,7 @@ function TopNav() {
         <a href="#demo" className="mx-1 hidden text-[13.5px] font-medium text-white/[0.72] hover:text-white sm:inline">Live demo</a>
         <a href="#pilot" className="mx-1 hidden text-[13.5px] font-medium text-white/[0.72] hover:text-white sm:inline">Pilot</a>
         <a href="#faq" className="mx-1 hidden text-[13.5px] font-medium text-white/[0.72] hover:text-white sm:inline">FAQ</a>
-        <a href={brand.links.book} className="rounded-lg bg-moss px-4 py-2.5 text-[13px] font-semibold text-[#0e2a0c] no-underline">
+        <a href={brand.links.book} data-analytics="booking:nav" className="rounded-lg bg-moss px-4 py-2.5 text-[13px] font-semibold text-[#0e2a0c] no-underline">
           Bring us one role
         </a>
       </Container>
@@ -299,10 +299,10 @@ function Footer() {
           {brand.presentedBy} · {brand.tagline}
         </div>
         <div className="mb-4 mt-4">
-          <a href={`mailto:${brand.links.email}`} className="mx-2 font-medium text-moss-soft no-underline hover:underline">{brand.links.email}</a> ·
-          <a href={brand.links.whatsapp} className="mx-2 font-medium text-moss-soft no-underline hover:underline">WhatsApp</a> ·
-          <a href={brand.links.linkedin} className="mx-2 font-medium text-moss-soft no-underline hover:underline">LinkedIn</a> ·
-          <a href={brand.links.book} className="mx-2 font-medium text-moss-soft no-underline hover:underline">Book a call</a>
+          <a href={`mailto:${brand.links.email}`} data-analytics="outbound:email" className="mx-2 font-medium text-moss-soft no-underline hover:underline">{brand.links.email}</a> ·
+          <a href={brand.links.whatsapp} data-analytics="outbound:whatsapp" className="mx-2 font-medium text-moss-soft no-underline hover:underline">WhatsApp</a> ·
+          <a href={brand.links.linkedin} data-analytics="outbound:linkedin" className="mx-2 font-medium text-moss-soft no-underline hover:underline">LinkedIn</a> ·
+          <a href={brand.links.book} data-analytics="booking:footer" className="mx-2 font-medium text-moss-soft no-underline hover:underline">Book a call</a>
         </div>
         <div className="leading-[1.7] text-white/40">
           {brand.legal.entity} · {brand.legal.address}

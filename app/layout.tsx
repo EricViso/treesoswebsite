@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { brand } from "@/lib/brand";
+import { PostHogAnalytics } from "@/components/analytics/PostHogAnalytics";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,7 +40,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <PostHogAnalytics />
+        <ConsentBanner />
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

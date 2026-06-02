@@ -42,6 +42,30 @@ npm run build && npm run start
 
 Deploys to Vercel as a standard Next.js app (no extra config). Domain: `treesos.io`.
 
+## Analytics & the analyst agent
+
+Instrumentation is **dormant until you set `NEXT_PUBLIC_POSTHOG_KEY`** — the site
+runs identically without it.
+
+- **PostHog (EU)** — events, autocapture, session replay. Consent-first: opted
+  out / cookieless until the visitor accepts (`ConsentBanner`).
+- **Vercel Analytics + Speed Insights** — traffic + Core Web Vitals.
+- **Event taxonomy** in `lib/analytics.ts`. Declarative: add
+  `data-analytics="<kind>:<label>"` (`cta` / `booking` / `demo` / `outbound`) to
+  any element; `data-section="<name>"` on sections. Tracked client-side by
+  `components/analytics/PostHogAnalytics.tsx` (pageviews, scroll depth, section
+  views, clicks). North-star event: `booking_started`.
+
+### Self-improving loop
+A scheduled GitHub Action (`.github/workflows/analytics-review.yml`) runs Claude
+weekly: it reads PostHog (via the `.mcp.json` MCP server) + the repo, then opens a
+PR proposing one copy improvement. **A human merges — the agent never deploys.**
+The runbook is `analytics/AGENT.md`; its memory/attribution ledger is
+`analytics/CHANGELOG.md`; per-cycle reports land in `analytics/reports/`.
+
+Secrets to add (repo settings): `ANTHROPIC_API_KEY`, `POSTHOG_MCP_TOKEN`.
+See `.env.example`.
+
 ## Re-brand in one place
 
 Change `name` / `presentedBy` / links in `lib/brand.ts`, and colour/type in
