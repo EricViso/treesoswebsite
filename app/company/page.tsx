@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { brand } from "@/lib/brand";
+import { manifesto } from "@/lib/content";
 import { HeroDark } from "@/components/marketing/HeroDark";
+import { TopNavDark } from "@/components/marketing/TopNavDark";
+import { SpeechBlock } from "@/components/marketing/SpeechBlock";
 import { Container, Button, Hl } from "@/components/marketing/primitives";
 
 export const metadata: Metadata = {
@@ -34,13 +37,15 @@ const proof = [
 ];
 
 /**
- * /company — Trees OS company thesis (treesos.io). Dark, consistent with the
- * Treelance product. Miki Mafia is teased, not named.
+ * /company — Trees OS company thesis (treesos.io). Miki Mafia is teased, not named.
  */
 export default function Company() {
   return (
     <main className="bg-base">
+      <TopNavDark variant="company" />
+
       <HeroDark
+        showTopBar={false}
         wordmarkVariant="company"
         eyebrow="AI-first digital transformation"
         title={
@@ -50,11 +55,22 @@ export default function Company() {
         }
         lead="Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance, our real-time talent orchestration for energy, is our first transformation."
         primary={{ label: "Work with us →", href: brand.links.book, external: true, track: "booking:company-hero" }}
-        secondary={{ label: "See Treelance ↗", href: "/v2", track: "cta:see-treelance" }}
+        secondary={{ label: "See Treelance ↗", href: "/", track: "cta:see-treelance" }}
+      />
+
+      {/* MANIFESTO */}
+      <SpeechBlock
+        tone="dark"
+        eyebrow={manifesto.eyebrow}
+        title={manifesto.title}
+        lead={manifesto.lead}
+        body={manifesto.body}
+        pullQuote={manifesto.pullQuote}
+        signoff={manifesto.signoff}
       />
 
       {/* THE MODEL — simultaneous principles, not steps */}
-      <section className="border-t border-white/[0.06] bg-base py-20 text-fg">
+      <section className="border-t border-white/[0.06] bg-base-rail py-20 text-fg">
         <Container width="wide">
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // the model
@@ -101,7 +117,7 @@ export default function Company() {
               </p>
             </div>
             <div className="flex shrink-0 gap-3">
-              <Button href="/v2" track="cta:exhibit-treelance">
+              <Button href="/" track="cta:exhibit-treelance">
                 See Treelance →
               </Button>
               <Button href="/dashboard.html" variant="ghost" external track="demo:company">
@@ -113,7 +129,7 @@ export default function Company() {
       </section>
 
       {/* PROOF — dogfooding */}
-      <section className="border-t border-white/[0.06] bg-base py-20 text-fg">
+      <section className="border-t border-white/[0.06] bg-base-rail py-20 text-fg">
         <Container width="wide">
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // proof, not promises
@@ -185,7 +201,7 @@ export default function Company() {
           <div className="mt-3">
             <a href={`mailto:${brand.links.email}`} className="mx-2 text-fg-muted no-underline hover:text-fg" data-analytics="outbound:email">{brand.links.email}</a> ·
             <a href={brand.links.linkedin} className="mx-2 text-fg-muted no-underline hover:text-fg" data-analytics="outbound:linkedin">LinkedIn</a> ·
-            <a href="/v2" className="mx-2 text-fg-muted no-underline hover:text-fg">Treelance</a>
+            <a href="/" className="mx-2 text-fg-muted no-underline hover:text-fg">Treelance</a>
           </div>
         </Container>
       </footer>

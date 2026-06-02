@@ -1,5 +1,6 @@
 import { brand } from "@/lib/brand";
 import { Hero } from "@/components/marketing/Hero";
+import { HeroDark } from "@/components/marketing/HeroDark";
 import { Hl } from "@/components/marketing/primitives";
 
 /**
@@ -47,6 +48,20 @@ export default function HeroTemplate() {
             Stop searching your database. <Hl>Activate it.</Hl>
           </>
         }
+      />
+
+      {/* 4 — Dark variant (HeroDark) with AI badge + compliance band */}
+      <HeroDark
+        eyebrow={brand.tagline}
+        title={
+          <>
+            AI workforce orchestration for the <Hl>energy sector.</Hl>
+          </>
+        }
+        lead="Dark, technical hero — dotted grid, green glow, the AI-driven badge and a compliance trust band."
+        primary={{ label: "Bring us one open role →", href: brand.links.book, external: true }}
+        secondary={{ label: "See the live dashboard", href: "#" }}
+        compliance={["PDPA aligned", "GDPR aligned", "Consent-first", "Audit trail"]}
       />
     </main>
   );

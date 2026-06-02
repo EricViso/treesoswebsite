@@ -110,6 +110,21 @@ export const faq = {
   ],
 };
 
+/** Company manifesto (Trees OS) — "use AI to be more human". */
+export const manifesto = {
+  eyebrow: "manifesto",
+  title: "Use AI to be more human.",
+  lead: "Most companies bolt AI onto a broken process and call it transformation. We think that's backwards. The point of automating the rote work isn't to remove people — it's to give them back the work only people can do: judgement, relationships, care.",
+  body: [
+    "Trees OS is an AI-first company in the literal sense. We don't have an AI strategy; AI is the operating system. Our delivery, our research, our internal ops — and the website you're reading — run on agents, with humans placed exactly where judgement belongs.",
+    "We started with energy staffing because it's the perfect test: a high-stakes, relationship-heavy business drowning in coordination. Treelance takes the coordination off recruiters' desks so they can do the human part — putting the right person in the right role, in real time.",
+    "Then we stay. We don't hand over a tool and leave; we run the systems we build and improve them every week. Transformation isn't a project with an end date. It's a relationship.",
+    "If it works here, it works elsewhere. The same playbook applies anywhere a traditional business is ready to be reinvented — and, in time, we'll back the people doing exactly that.",
+  ],
+  pullQuote: "We don't sell AI. We rebuild businesses to run on it — and we run on it first.",
+  signoff: { name: "Trees OS", role: "AI-first digital transformation" },
+};
+
 /** Long-form narrative used by the Speech template. Condensed from the strategy thesis. */
 export const speech = {
   eyebrow: "the thesis",

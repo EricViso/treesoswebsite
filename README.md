@@ -8,20 +8,29 @@ Next.js + Tailwind marketing kit for **Treelance**, the first product from
 *Trees OS* is the company; *Treelance* is the product the marketing speaks as.
 The first client (Trees Engineering) is never referenced publicly.
 
+## Two domains, one app
+
+| Domain | Route | Page |
+|--------|-------|------|
+| `treelance.ai` | `/` | Treelance product landing (dark) — `ProductLanding` |
+| `treesos.io` | `/company` | Trees OS company thesis + manifesto (dark) — `app/company` |
+
+`middleware.ts` host-routes the root path (`treesos.io/` → `/company`); deeper
+paths are shared. On Vercel, add both domains to the project.
+
 ## What's here
 
 | Path | Purpose |
 |------|---------|
-| `app/page.tsx` | Template gallery (the design-system landing). |
-| `app/templates/one-pager` | Full Treelance one-pager (`OnePager`). |
-| `app/templates/hero` | `Hero` template — three variants. |
-| `app/templates/speech` | `SpeechBlock` — long-form narrative template. |
-| `components/marketing/*` | Reusable components: `Hero`, `SpeechBlock`, `OnePager`, `Wordmark`, primitives. |
+| `app/page.tsx` | Treelance product landing (`ProductLanding`). |
+| `app/company` | Trees OS company page (thesis + manifesto). |
+| `app/templates` | Design-system gallery + light template previews (`hero`, `speech`, `one-pager`). |
+| `components/marketing/*` | `ProductLanding`, `HeroDark`/`Hero`, `SpeechBlock`, `OnePager`, `TopNavDark`, `Wordmark`, `AiDrivenBadge`, `ComplianceBand`, primitives. |
 | `lib/brand.ts` | Brand names, links, colour tokens — **single source of truth**. |
-| `lib/content.ts` | Marketing copy (kept out of layout). |
-| `tailwind.config.ts` | Design tokens (colour + type). |
+| `lib/content.ts` | Marketing copy + manifesto (kept out of layout). |
+| `tailwind.config.ts` | Design tokens — navy/moss brand + dark `base`/`fg` scale. |
 | `docs/MARKETING_DESIGN.md` | The marketing design file (brand, voice, tokens, components). |
-| `public/dashboard.html` | Interactive dashboard demo, embedded in the one-pager. |
+| `public/dashboard.html` | Interactive dashboard demo, embedded in the product page. |
 | `data/` | Source material — not deployed. |
 
 ## Develop
@@ -31,8 +40,8 @@ npm install
 npm run dev      # http://localhost:3000
 ```
 
-Routes: `/` (gallery) · `/templates/one-pager` · `/templates/hero` ·
-`/templates/speech` · `/dashboard.html`.
+Routes: `/` (Treelance product) · `/company` (Trees OS) · `/templates` (gallery)
+· `/dashboard.html`.
 
 ## Build & deploy
 

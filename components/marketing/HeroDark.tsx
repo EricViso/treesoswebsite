@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 import { Container, Button } from "./primitives";
 import { Wordmark } from "./Wordmark";
 import { AiDrivenBadge } from "./AiDrivenBadge";
@@ -17,6 +18,8 @@ export type HeroDarkProps = {
   compliance?: string[];
   /** Wordmark lockup: product (Treelance by Trees OS) or company (Trees OS). */
   wordmarkVariant?: "product" | "company";
+  /** Render the internal wordmark/badge bar. Off when a sticky nav sits above. */
+  showTopBar?: boolean;
 };
 
 /**
@@ -32,6 +35,7 @@ export function HeroDark({
   aiBadge = true,
   compliance,
   wordmarkVariant = "product",
+  showTopBar = true,
 }: HeroDarkProps) {
   return (
     <header className="relative overflow-hidden bg-base py-7 text-fg">
@@ -53,12 +57,15 @@ export function HeroDark({
 
       <Container width="wide" className="relative z-10">
         {/* top bar */}
-        <div className="flex items-center justify-between py-2">
-          <Wordmark variant={wordmarkVariant} />
-          {aiBadge && <AiDrivenBadge />}
-        </div>
+        {showTopBar && (
+          <div className="flex items-center justify-between py-2">
+            <Wordmark variant={wordmarkVariant} />
+            {aiBadge && <AiDrivenBadge />}
+          </div>
+        )}
 
-        <div className="max-w-[20ch] pt-16 max-[700px]:pt-10">
+        <div className={cn("max-w-[20ch]", showTopBar ? "pt-16 max-[700px]:pt-10" : "pt-6")}>
+          {!showTopBar && aiBadge && <AiDrivenBadge className="mb-5" />}
           {eyebrow && (
             <div className="mb-5 animate-rise font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
               // {eyebrow}
