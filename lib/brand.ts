@@ -24,11 +24,12 @@ export const brand = {
   audience: "Energy staffing agencies & ESNs",
 
   links: {
-    book: "https://calendar.app.google/HLfcvtmSVVJjtb7n7",
-    whatsapp: "https://wa.me/33761481089",
+    book: "https://calendar.app.google/2T1gmEbQ3K1CgJfp8",
+    whatsapp: "https://wa.me/60122421849",
+    telegram: "https://t.me/treelance_ai_bot",
+    dashboard: "https://dash.treelance.ai",
+    email: "skai@treesos.io",
     linkedin: "https://www.linkedin.com/in/quentincloarec",
-    // NOTE: swap to a treesos.io address once mailboxes are live.
-    email: "quentin@trees-engineering.com",
   },
 
   legal: {

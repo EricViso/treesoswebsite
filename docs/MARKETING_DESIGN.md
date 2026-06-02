@@ -141,7 +141,21 @@ say "Treelance"; swap globally there if the lead brand changes.
 
 ## 9. To-do / open decisions
 
-- [ ] Confirm lead brand for marketing: **Treelance** (current) vs Trees OS — one line in `lib/brand.ts`.
-- [ ] Replace contact email with a `@treesos.io` mailbox once live (currently the known-good address in `lib/brand.ts`).
-- [ ] Real logo lockup SVG + Open Graph share image (1200×630).
-- [ ] Tune the dashboard mock address bar (`app.treesos.io/dashboard`) to the real app URL.
+Done in the latest pass (from the content brief):
+- [x] Real contacts wired in `lib/brand.ts`: `skai@treesos.io`, WhatsApp `wa.me/60122421849`, Telegram `t.me/treelance_ai_bot`, dashboard `dash.treelance.ai`, booking `/2T1gmEbQ3K1CgJfp8`.
+- [x] Certification moat in copy: SM2, BOSIET, BNSP, OPITO, GWO (SEA-specific, the real differentiator).
+- [x] Demo address bar set to `dash.treelance.ai`.
+- [x] SEO keywords added to metadata.
+
+Open:
+- [ ] **Confirm the booking link** — the brief uses `/2T1gmEbQ3K1CgJfp8`; earlier collateral used Quentin's `/HLfcvtmSVVJjtb7n7`. Confirm which is canonical.
+- [ ] **Real logo** — `treelance_logo_transparent.png` (ucarecdn) couldn't be fetched here (network allowlist blocks the host). Add it to `public/brand/` manually, then wire into `Wordmark`/favicon. Skaï avatar likewise.
+- [ ] Open Graph share image (1200×630).
+
+Deliberately NOT taken from the brief (contradicts decisions / unverifiable):
+- Light 70/25/5 palette → we committed to **dark from day one**.
+- 9-page IA + For Employers / For Talent pages → we focus on **agencies (who pay)**; product + company only.
+- Published pricing tiers (RM 299/599/999) → pricing is **undecided** (per the team meeting); don't publish invented numbers.
+- Traction stats (50+ clients, 30,000+, 3×, 98%) and testimonials → **unverified / fabricated**; omit until real.
+- Client logo bar (PETRONAS, TotalEnergies, NOV…) → these are **Trees Engineering's** clients (must not be referenced) and implying them as Treelance customers would be misleading.
+- "Free trial / sign up / log in" CTAs → keep the concrete **pilot + live demo** CTA.

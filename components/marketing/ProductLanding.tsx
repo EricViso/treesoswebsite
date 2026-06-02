@@ -146,7 +146,7 @@ export function ProductLanding() {
             <span className="h-[11px] w-[11px] rounded-full bg-[#febc2e]" />
             <span className="h-[11px] w-[11px] rounded-full bg-[#28c840]" />
             <span className="ml-2.5 max-w-[420px] flex-1 rounded-md bg-white/[0.07] px-3.5 py-[5px] font-mono text-xs text-white/60">
-              app.{brand.domain}/dashboard
+              dash.treelance.ai
             </span>
             <span className="ml-auto flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-moss-soft">
               <span className="h-[7px] w-[7px] animate-pulsering rounded-full bg-moss" /> live mock-up
@@ -311,7 +311,7 @@ export function ProductLanding() {
           <div className="mt-3">
             <a href={`mailto:${brand.links.email}`} data-analytics="outbound:email" className="mx-2 text-fg-muted no-underline hover:text-fg">{brand.links.email}</a> ·
             <a href={brand.links.whatsapp} data-analytics="outbound:whatsapp" className="mx-2 text-fg-muted no-underline hover:text-fg">WhatsApp</a> ·
-            <a href={brand.links.linkedin} data-analytics="outbound:linkedin" className="mx-2 text-fg-muted no-underline hover:text-fg">LinkedIn</a> ·
+            <a href={brand.links.telegram} data-analytics="outbound:telegram" className="mx-2 text-fg-muted no-underline hover:text-fg">Telegram</a> ·
             <a href="/company" className="mx-2 text-fg-muted no-underline hover:text-fg">Trees OS</a>
           </div>
           <div className="mt-4 leading-[1.7] text-fg-faint/70">

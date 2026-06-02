@@ -9,7 +9,7 @@ export const problem = {
   items: [
     "The database you spent years and a fortune building is stale the day after you build it — people move, certs expire, availability changes.",
     "Every open role restarts the same manual hunt across a pool you already own: who's free, who's certified, who's even still in the sector.",
-    "Your recruiters' margin disappears into coordination — chasing availability, re-confirming certs — instead of the placements they're paid to close.",
+    "Manual certification checks alone eat 25–50 hours a month — cross-referencing SM2, BOSIET and BNSP by hand — time your recruiters should spend closing placements.",
   ],
   punch: "Treelance makes the database you already own work for you. Your recruiters go back to placing.",
 };
@@ -18,7 +18,7 @@ export const phases = [
   {
     n: "01",
     title: "We build your matching language",
-    body: "Before anything matches, Treelance maps how your desk evaluates talent — roles, skills, certifications, seniority, deal-breakers, field constraints. Your taxonomy, not a generic template. Your dashboard runs on it from day one, and it sharpens every time a recruiter accepts or rejects a profile.",
+    body: "Before anything matches, Treelance maps how your desk evaluates talent — roles, skills, seniority, deal-breakers, field constraints, and the certification ontology that actually matters in energy: SM2, BOSIET, BNSP, OPITO, GWO. Your taxonomy, not a generic template. Your dashboard runs on it from day one, and it sharpens every time a recruiter accepts or rejects a profile.",
     tag: "delivered in 2 weeks · the first thing we hand you",
   },
   {
@@ -41,7 +41,7 @@ export const payoff = {
   cards: [
     { h: "Confirmed interest", p: "They said yes to this specific role — no cold guessing." },
     { h: "Verified availability", p: "Free now, notice period known, start date realistic." },
-    { h: "Current certifications", p: "BOSIET, GWO, CSWIP, NEBOSH and more — no expiry surprises at mobilisation." },
+    { h: "Certification-aware", p: "SM2, BOSIET, BNSP, OPITO, GWO — verified automatically. No manual checks, no expiry surprises at mobilisation." },
     { h: "Mobility & constraints checked", p: "Location, willingness to travel, contract type — already screened." },
   ],
   line: "You open the dashboard and talk to people who already said yes.",

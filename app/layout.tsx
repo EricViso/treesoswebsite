@@ -23,7 +23,16 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: `${brand.name} — ${brand.tagline}`,
   description:
-    "Treelance connects to the candidate database your energy staffing agency already owns, keeps it live through AI agents on WhatsApp & Telegram, and turns every open role into a shortlist of people who are available, certified and interested.",
+    "Treelance connects to the candidate database your energy staffing agency already owns, keeps it live through AI agents on WhatsApp & Telegram, and turns every open role into a shortlist of available, certification-verified people — SM2, BOSIET, BNSP, OPITO, GWO.",
+  keywords: [
+    "energy recruitment Malaysia",
+    "certified offshore engineer hiring",
+    "SM2 certified technicians",
+    "BOSIET certified candidates",
+    "oil and gas staffing",
+    "AI recruitment energy industry",
+    "workforce orchestration",
+  ],
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: `${brand.name} — ${brand.tagline}`,
