@@ -312,7 +312,7 @@ export function ProductLanding() {
             <a href={`mailto:${brand.links.email}`} data-analytics="outbound:email" className="mx-2 text-fg-muted no-underline hover:text-fg">{brand.links.email}</a> ·
             <a href={brand.links.whatsapp} data-analytics="outbound:whatsapp" className="mx-2 text-fg-muted no-underline hover:text-fg">WhatsApp</a> ·
             <a href={brand.links.telegram} data-analytics="outbound:telegram" className="mx-2 text-fg-muted no-underline hover:text-fg">Telegram</a> ·
-            <a href="/company" className="mx-2 text-fg-muted no-underline hover:text-fg">Trees OS</a>
+            <a href={brand.sites.company} className="mx-2 text-fg-muted no-underline hover:text-fg">Trees OS</a>
           </div>
           <div className="mt-4 leading-[1.7] text-fg-faint/70">
             {brand.legal.entity} · {brand.legal.address}

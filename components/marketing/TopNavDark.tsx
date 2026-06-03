@@ -25,7 +25,7 @@ export function TopNavDark({
             <a href="#demo" className={link}>Live demo</a>
             <a href="#pilot" className={link}>Pilot</a>
             <a href="#faq" className={link}>FAQ</a>
-            <a href="/company" className={cn(link, "text-fg-faint")}>Trees OS ↗</a>
+            <a href={brand.sites.company} className={cn(link, "text-fg-faint")}>Trees OS ↗</a>
             <a
               href={brand.links.book}
               data-analytics="booking:nav"
@@ -36,7 +36,7 @@ export function TopNavDark({
           </>
         ) : (
           <>
-            <a href="/" className={link}>Treelance</a>
+            <a href={brand.sites.product} className={link}>Treelance ↗</a>
             <a
               href={brand.links.book}
               data-analytics="booking:company-nav"

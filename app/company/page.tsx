@@ -55,7 +55,7 @@ export default function Company() {
         }
         lead="Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance, our real-time talent orchestration for energy, is our first transformation."
         primary={{ label: "Work with us →", href: brand.links.book, external: true, track: "booking:company-hero" }}
-        secondary={{ label: "See Treelance ↗", href: "/", track: "cta:see-treelance" }}
+        secondary={{ label: "See Treelance ↗", href: brand.sites.product, track: "cta:see-treelance" }}
       />
 
       {/* MANIFESTO */}
@@ -117,7 +117,7 @@ export default function Company() {
               </p>
             </div>
             <div className="flex shrink-0 gap-3">
-              <Button href="/" track="cta:exhibit-treelance">
+              <Button href={brand.sites.product} track="cta:exhibit-treelance">
                 See Treelance →
               </Button>
               <Button href="/dashboard.html" variant="ghost" external track="demo:company">
@@ -201,7 +201,7 @@ export default function Company() {
           <div className="mt-3">
             <a href={`mailto:${brand.links.email}`} className="mx-2 text-fg-muted no-underline hover:text-fg" data-analytics="outbound:email">{brand.links.email}</a> ·
             <a href={brand.links.linkedin} className="mx-2 text-fg-muted no-underline hover:text-fg" data-analytics="outbound:linkedin">LinkedIn</a> ·
-            <a href="/" className="mx-2 text-fg-muted no-underline hover:text-fg">Treelance</a>
+            <a href={brand.sites.product} className="mx-2 text-fg-muted no-underline hover:text-fg">Treelance</a>
           </div>
         </Container>
       </footer>

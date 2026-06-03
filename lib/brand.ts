@@ -21,6 +21,13 @@ export const brand = {
     "Make the candidate database your agency already owns work for you.",
   domain: "treesos.io",
 
+  /** Absolute URLs of the two public sites — used for cross-links between them.
+   *  (Relative paths loop on the treesos.io host because middleware rewrites "/".) */
+  sites: {
+    product: "https://treelance.ai",
+    company: "https://treesos.io",
+  },
+
   audience: "Energy staffing agencies & ESNs",
 
   links: {
