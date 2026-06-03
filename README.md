@@ -30,6 +30,7 @@ paths are shared. On Vercel, add both domains to the project.
 | `lib/content.ts` | Marketing copy + manifesto (kept out of layout). |
 | `tailwind.config.ts` | Design tokens — navy/moss brand + dark `base`/`fg` scale. |
 | `docs/MARKETING_DESIGN.md` | The marketing design file (brand, voice, tokens, components). |
+| `docs/DECISIONS.md` | Decision record — what was decided, why, and where it lives. |
 | `public/dashboard.html` | Interactive dashboard demo, embedded in the product page. |
 | `data/` | Source material — not deployed. |
 
