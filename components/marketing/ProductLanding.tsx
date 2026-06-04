@@ -74,7 +74,7 @@ export function ProductLanding() {
         lead="Treelance connects to the candidate database your agency already owns, keeps it live through AI agents on WhatsApp and Telegram, and turns every open role into a shortlist of people who are available, certified and interested — matched on verifiable certifications, not black-box profiling. Built for energy staffing, in Malaysia."
         primary={{ label: "Bring us one open role →", href: brand.links.book, external: true, track: "booking:hero" }}
         secondary={{ label: "See the live dashboard", href: "#demo", track: "cta:see-demo" }}
-        compliance={["PDPA aligned", "GDPR aligned", "Consent-first", "Audit trail"]}
+        compliance={["PDPA aligned", "AIGE principles", "Consent-first", "Audit trail"]}
       />
 
       {/* PROBLEM */}

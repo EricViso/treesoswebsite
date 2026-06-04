@@ -67,7 +67,7 @@ export const trust = {
   cards: [
     { ic: "🗂️", h: "Your candidates, your pool", p: "Your roles match against your own database — never mixed with or exposed to another agency's candidates." },
     { ic: "🔐", h: "Double opt-in", p: "Every candidate consents before a Treelance agent ever contacts them. No blasting, ever." },
-    { ic: "🛡️", h: "PDPA & GDPR aligned", p: "Built on consent and transparency from the first message — not retrofitted onto it." },
+    { ic: "🛡️", h: "PDPA-aligned, AI-governance aware", p: "Built to Malaysia's PDPA — 2024 amendments included — and the national AIGE principles. Consent and transparency from the first message, not retrofitted." },
     { ic: "🤝", h: "You own the relationship", p: "Treelance is the infrastructure underneath. The candidate, and the placement, are yours." },
   ],
 };
@@ -104,7 +104,7 @@ export const faq = {
     { q: "Who owns the candidate data?", a: "You do. Treelance is the infrastructure underneath; your candidates are your pool, you own the relationship and the placement. We never sell, share or pool your database with another agency." },
     { q: "Does our database get mixed with other agencies'?", a: "No. Your roles match only against your own candidates, plus anyone who joined Treelance directly and opted in. One agency's pool is never exposed to another." },
     { q: "Do we have to replace our ATS?", a: "No. Treelance connects to the ATS and database you already run (Boond Manager, Bullhorn and others) and layers on top. No rip-and-replace, no migration project." },
-    { q: "Is candidate consent covered?", a: "Double opt-in before any agent makes contact, PDPA & GDPR aligned by design. Every candidate can update or delete their data at any time." },
+    { q: "Is candidate consent covered?", a: "Double opt-in before any agent makes contact — aligned with Malaysia's PDPA, including the 2024 amendments (DPO, 72-hour breach notification, data-subject rights). Every candidate can access, update or delete their data at any time." },
     { q: "Can the AI make a wrong hire?", a: "It can't make a hire at all. The agents pre-filter and surface; a human approves every invitation and every decision. No autonomous matching." },
     { q: "Will our recruiters resist it?", a: "It removes the part they hate — chasing availability and certs — and hands back the part they're paid for: judgement, negotiation and relationships. It's a tool for them, not a replacement." },
   ],

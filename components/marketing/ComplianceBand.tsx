@@ -2,7 +2,7 @@ import { cn } from "@/lib/cn";
 
 const DEFAULT_ITEMS = [
   "PDPA aligned",
-  "GDPR aligned",
+  "AIGE principles",
   "Consent-first",
   "Audit trail",
 ];

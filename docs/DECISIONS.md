@@ -30,6 +30,7 @@ website brief), **design review** (the external "Vercel/Linear" AI review).
 | D13 | Real contacts (skai@treesos.io etc.) | Active |
 | D14 | Scope kept to Malaysia + energy | Active |
 | D15 | Keep light templates as a design-system reference | Active |
+| D16 | Compliance: Malaysian-specific, inline, no page | Active |
 
 Superseded: S1 (first light navy site), S2 ("Energy HR & talent teams" audience),
 S3 (4-phase roadmap pipeline).
@@ -129,6 +130,12 @@ S3 (4-phase roadmap pipeline).
 - **Where:** `app/templates/*`, `docs/MARKETING_DESIGN.md`.
 - **Source:** implementation choice.
 
+### D16 — Compliance: Malaysian-specific, woven inline, no dedicated page
+- **Decision:** drop **GDPR** from public copy; name Malaysia's real instruments — **PDPA** (Personal Data Protection Act 2010 + the **2024 amendments**: mandatory DPO, 72-hour breach notification, data-subject rights) and **AIGE** (MOSTI's National Guidelines on AI Governance & Ethics, 7 voluntary principles). Light touch, woven into existing copy — **no compliance page, no compliance section**.
+- **Why:** founder wants Malaysian-first regulatory literacy that signals "we know the law" without over-emphasis. An external brief proposed a full AI-compliance *page* repositioning Trees OS as a "compliance partner / regtech advisory" spanning BNM (banking) and SC (capital markets) — **rejected**: it contradicts D8 (Trees OS = AI-first *transformation*, not compliance consulting) and D14 (Malaysia + energy only), and claiming cross-sector advisory isn't credible. Self-awarded compliance "badges" were rejected on the same grounds as the fabricated traction stats. Every regulatory fact was web-verified before publishing (a garbled regulator name would destroy the credibility the mention exists to build).
+- **Where:** `components/marketing/ComplianceBand.tsx` (default items), `components/marketing/ProductLanding.tsx` (hero `compliance` prop), `lib/content.ts` (`trust` card #3 + `faq` consent item), `app/layout.tsx` (meta keywords).
+- **Source:** founder + AskUserQuestion (rejecting the external compliance-expert brief's page/positioning).
+
 ---
 
 ## Rejected ideas (and why)
@@ -146,6 +153,14 @@ From the **design review**:
 - **Standalone HTML mockups** → we're on Next.js (D1) on purpose.
 - **Waitlist CTA** → conflicts with D5.
 - *Taken from it:* shadow-border polish; validation that dark ("Linear path") was right. (The 4-phase pipeline it inspired was built then removed — see S3.)
+
+From the **AI-compliance brief** (see D16):
+- **A dedicated AI-compliance page** repositioning Trees OS as a "compliance partner / regtech advisory" → conflicts with D8 (transformation co., not compliance consulting).
+- **Sector pillars (BNM RMiT banking, SC GTRM capital markets)** → conflicts with D14 (Malaysia + energy only); not credible for an energy-staffing AI startup.
+- **Self-awarded trust badges ("PDPA Amendment 2024 Ready", "AI Governance Bill Prepared", "AIGE Compliant")** → unearned claims, same category as the rejected traction stats.
+- **"Register with NAIO / stay current" checklist + RM1m-fine fear hooks + "Compliance Readiness Quiz"** → asserts processes/urgency off-brand to the "concrete, no hype" voice and conflicts with D5 (pilot/demo CTA).
+- **Blue/teal palette** → conflicts with D6 (dark).
+- *Taken from it:* the move off generic GDPR to Malaysia-specific terms (PDPA + 2024 amendments, AIGE) — verified, then woven inline. See D16.
 
 ---
 

@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "oil and gas staffing",
     "AI recruitment energy industry",
     "workforce orchestration",
+    "PDPA compliance Malaysia",
+    "AIGE AI governance Malaysia",
   ],
   icons: { icon: "/favicon.svg" },
   openGraph: {
