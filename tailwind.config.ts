@@ -52,6 +52,10 @@ const config: Config = {
       letterSpacing: {
         tightest: "-0.03em",
       },
+      backgroundImage: {
+        'rings-dark': 'radial-gradient(circle at 50% 50%, rgba(88,180,81,0.03) 0%, transparent 70%), radial-gradient(circle at 50% 50%, rgba(88,180,81,0.02) 20%, transparent 60%)',
+        'rings-mid': 'radial-gradient(circle at 50% 50%, rgba(88,180,81,0.04) 0%, transparent 60%), radial-gradient(circle at 50% 50%, rgba(88,180,81,0.02) 25%, transparent 55%)',
+      },
       keyframes: {
         rise: {
           "0%": { opacity: "0", transform: "translateY(18px)" },
@@ -62,10 +66,15 @@ const config: Config = {
           "70%": { boxShadow: "0 0 0 7px rgba(88,180,81,0)" },
           "100%": { boxShadow: "0 0 0 0 rgba(88,180,81,0)" },
         },
+        rootGrow: {
+          "0%": { clipPath: "inset(0 100% 0 0)" },
+          "100%": { clipPath: "inset(0 0% 0 0)" },
+        },
       },
       animation: {
         rise: "rise .7s cubic-bezier(.2,.7,.2,1) both",
         pulsering: "pulsering 2s infinite",
+        rootGrow: "rootGrow 1.2s cubic-bezier(.25,.46,.45,.94) both",
       },
     },
   },

@@ -5,6 +5,8 @@ import * as c from "@/lib/content";
 import { Container, Button, Hl } from "./primitives";
 import { HeroDark } from "./HeroDark";
 import { TopNavDark } from "./TopNavDark";
+import { RootDivider } from "./RootDivider";
+import { ForestNode } from "./ForestNode";
 
 /* ---------- dark section helpers ---------- */
 
@@ -13,21 +15,24 @@ function Section({
   dataSection,
   alt,
   children,
+  index,
 }: {
   id?: string;
   dataSection?: string;
   alt?: boolean;
   children: ReactNode;
+  index?: number;
 }) {
   return (
     <section
       id={id}
       data-section={dataSection}
       className={cn(
-        "border-t border-white/[0.06] py-[72px] text-fg",
-        alt ? "bg-base-rail" : "bg-base",
+        "relative py-[72px] text-fg",
+        alt ? "bg-base-rail bg-rings-dark" : "bg-base",
       )}
     >
+      {index !== undefined && index > 0 && <RootDivider className="absolute top-0" />}
       <Container width="wide">{children}</Container>
     </section>
   );
@@ -36,7 +41,7 @@ function Section({
 function Kick({ children }: { children: ReactNode }) {
   return (
     <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-      // {children}
+      <ForestNode size={11} className="mr-1.5 -mt-0.5" />{children}
     </div>
   );
 }
@@ -78,7 +83,7 @@ export function ProductLanding() {
       />
 
       {/* PROBLEM */}
-      <Section dataSection="problem" alt>
+      <Section dataSection="problem" alt index={0}>
         <Kick>{c.problem.kicker}</Kick>
         <Head>{c.problem.title}</Head>
         <div className="mb-7 mt-8 grid gap-3.5">
@@ -98,7 +103,7 @@ export function ProductLanding() {
       </Section>
 
       {/* HOW */}
-      <Section id="how" dataSection="how">
+      <Section id="how" dataSection="how" index={1}>
         <Kick>how it works</Kick>
         <Head>Three moves. One living database.</Head>
         <Sub>
@@ -131,7 +136,7 @@ export function ProductLanding() {
       </Section>
 
       {/* DEMO */}
-      <Section id="demo" dataSection="demo" alt>
+      <Section id="demo" dataSection="demo" alt index={2}>
         <Kick>see it live</Kick>
         <Head>This is your dashboard on one real role.</Head>
         <Sub>
@@ -167,7 +172,7 @@ export function ProductLanding() {
       </Section>
 
       {/* PAYOFF */}
-      <Section dataSection="payoff">
+      <Section dataSection="payoff" index={3}>
         <Kick>{c.payoff.kicker}</Kick>
         <Head>{c.payoff.title}</Head>
         <div className="mb-8 mt-8 grid grid-cols-2 gap-3.5 max-[560px]:grid-cols-1">
@@ -187,7 +192,7 @@ export function ProductLanding() {
       </Section>
 
       {/* HUMAN IN THE LOOP */}
-      <Section dataSection="loop" alt>
+      <Section dataSection="loop" alt index={4}>
         <Kick>{c.loop.kicker}</Kick>
         <Head>{c.loop.title}</Head>
         <Sub>{c.loop.sub}</Sub>
@@ -219,7 +224,7 @@ export function ProductLanding() {
       </Section>
 
       {/* TRUST */}
-      <Section dataSection="trust">
+      <Section dataSection="trust" index={5}>
         <Kick>{c.trust.kicker}</Kick>
         <Head>{c.trust.title}</Head>
         <Sub>{c.trust.sub}</Sub>
@@ -237,7 +242,7 @@ export function ProductLanding() {
       </Section>
 
       {/* PILOT */}
-      <Section id="pilot" dataSection="pilot" alt>
+      <Section id="pilot" dataSection="pilot" alt index={6}>
         <Kick>{c.pilot.kicker}</Kick>
         <Head>{c.pilot.title}</Head>
         <Sub>{c.pilot.sub}</Sub>
@@ -259,7 +264,7 @@ export function ProductLanding() {
       </Section>
 
       {/* FAQ */}
-      <Section id="faq" dataSection="faq">
+      <Section id="faq" dataSection="faq" index={7}>
         <Kick>{c.faq.kicker}</Kick>
         <Head>{c.faq.title}</Head>
         <div className="mt-8 grid grid-cols-2 gap-3.5 max-[600px]:grid-cols-1">
@@ -302,7 +307,22 @@ export function ProductLanding() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+        {/* root-line accent */}
+        <svg
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          className="absolute inset-x-0 top-[-20px] h-10 w-full opacity-[0.06]"
+          aria-hidden
+        >
+          <path
+            d="M0 20 Q 200 0, 400 20 T 800 20 T 1200 20"
+            stroke="currentColor"
+            strokeWidth="0.8"
+            fill="none"
+            className="text-moss"
+          />
+        </svg>
         <Container width="wide">
           <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.name}</div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">

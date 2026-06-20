@@ -5,6 +5,8 @@ import { HeroDark } from "@/components/marketing/HeroDark";
 import { TopNavDark } from "@/components/marketing/TopNavDark";
 import { SpeechBlock } from "@/components/marketing/SpeechBlock";
 import { Container, Button, Hl } from "@/components/marketing/primitives";
+import { RootDivider } from "@/components/marketing/RootDivider";
+import { ForestNode } from "@/components/marketing/ForestNode";
 
 export const metadata: Metadata = {
   title: `${brand.company} — AI-first digital transformation`,
@@ -71,10 +73,11 @@ export default function Company() {
       />
 
       {/* THE MODEL — simultaneous principles, not steps */}
-      <section className="border-t border-white/[0.06] bg-base-rail py-20 text-fg">
+      <section className="relative overflow-hidden bg-base-rail bg-rings-dark py-20 text-fg">
+        <RootDivider className="absolute top-0" />
         <Container width="wide">
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-            // the model
+            <ForestNode size={11} className="mr-1.5 -mt-0.5" />the model
           </div>
           <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             Not a tool we sell. A business we rebuild — and run.
@@ -102,12 +105,13 @@ export default function Company() {
       </section>
 
       {/* EXHIBIT A — Treelance */}
-      <section className="border-t border-white/[0.06] bg-base py-16 text-fg">
+      <section className="relative overflow-hidden bg-base py-16 text-fg">
+        <RootDivider className="absolute top-0" />
         <Container width="wide">
           <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-moss/20 bg-base-raised p-8 md:flex-row md:items-center">
             <div className="max-w-[52ch]">
               <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-moss">
-                // exhibit A
+                <ForestNode size={11} className="mr-1.5 -mt-0.5" />exhibit A
               </div>
               <h3 className="mt-2 text-[22px] font-extrabold tracking-[-0.01em] text-fg">
                 Treelance — our first transformation
@@ -130,10 +134,11 @@ export default function Company() {
       </section>
 
       {/* PROOF — dogfooding */}
-      <section className="border-t border-white/[0.06] bg-base-rail py-20 text-fg">
+      <section className="relative overflow-hidden bg-base-rail bg-rings-dark py-20 text-fg">
+        <RootDivider className="absolute top-0" />
         <Container width="wide">
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-            // proof, not promises
+            <ForestNode size={11} className="mr-1.5 -mt-0.5" />proof, not promises
           </div>
           <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             The method is credible because we live it.
@@ -150,14 +155,15 @@ export default function Company() {
       </section>
 
       {/* HORIZON — teased, unnamed */}
-      <section className="relative overflow-hidden border-t border-white/[0.06] bg-base py-20 text-fg">
+      <section className="relative overflow-hidden bg-base py-20 text-fg">
+        <RootDivider className="absolute top-0" />
         <div
           aria-hidden
           className="pointer-events-none absolute -left-[8%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.14)_0%,transparent_62%)] blur-2xl"
         />
         <Container width="wide" className="relative">
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-            // the horizon
+            <ForestNode size={11} className="mr-1.5 -mt-0.5" />the horizon
           </div>
           <h2 className="mt-3 max-w-[24ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             If the model holds, we don&apos;t stop at one industry.
@@ -172,7 +178,8 @@ export default function Company() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden border-t border-white/[0.06] bg-base py-20 text-center text-fg">
+      <section className="relative overflow-hidden bg-base py-20 text-center text-fg">
+        <RootDivider className="absolute top-0" />
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[680px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.16)_0%,transparent_60%)] blur-2xl"
@@ -193,7 +200,22 @@ export default function Company() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+        {/* root-line accent */}
+        <svg
+          viewBox="0 0 1200 40"
+          preserveAspectRatio="none"
+          className="absolute inset-x-0 top-[-20px] h-10 w-full opacity-[0.06]"
+          aria-hidden
+        >
+          <path
+            d="M0 20 Q 200 0, 400 20 T 800 20 T 1200 20"
+            stroke="currentColor"
+            strokeWidth="0.8"
+            fill="none"
+            className="text-moss"
+          />
+        </svg>
         <Container width="wide">
           <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
