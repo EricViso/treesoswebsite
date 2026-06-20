@@ -47,6 +47,7 @@ export default function Company() {
       <HeroDark
         showTopBar={false}
         wordmarkVariant="company"
+        backgroundImage="/images/hero-company.jpg"
         eyebrow="AI-first digital transformation"
         title={
           <>

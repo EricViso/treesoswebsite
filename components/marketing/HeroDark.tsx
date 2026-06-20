@@ -20,6 +20,8 @@ export type HeroDarkProps = {
   wordmarkVariant?: "product" | "company";
   /** Render the internal wordmark/badge bar. Off when a sticky nav sits above. */
   showTopBar?: boolean;
+  /** Full-bleed background image path (e.g. "/images/hero-company.jpg"). */
+  backgroundImage?: string;
 };
 
 /**
@@ -36,9 +38,25 @@ export function HeroDark({
   compliance,
   wordmarkVariant = "product",
   showTopBar = true,
+  backgroundImage,
 }: HeroDarkProps) {
   return (
-    <header className="relative overflow-hidden bg-base py-7 text-fg">
+    <header className={cn("relative overflow-hidden bg-base text-fg", backgroundImage ? "py-20 max-[700px]:py-14" : "py-7")}>
+      {/* full-bleed background image */}
+      {backgroundImage && (
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        />
+      )}
+      {/* dark overlay for image readability */}
+      {backgroundImage && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/50 to-black/30"
+        />
+      )}
       {/* dotted grid */}
       <div
         aria-hidden
