@@ -4,12 +4,15 @@ import { cn } from "@/lib/cn";
 /**
  * Brand wordmark. Defaults to the product name (Treelance) with an optional
  * "by Trees OS" endorsement lockup. Reads names from lib/brand.ts.
+ * Company variant uses the real Trees OS circuitry-tree logo.
  */
 export function Wordmark({
   endorsed = true,
   tone = "light",
   variant = "product",
   className,
+  /** Override logo size for company variant (default 28x28). */
+  logoSize,
 }: {
   /** Show the "by Trees OS" company lockup (product variant only). */
   endorsed?: boolean;
@@ -18,27 +21,38 @@ export function Wordmark({
   /** "product" → Treelance by Trees OS · "company" → Trees OS. */
   variant?: "product" | "company";
   className?: string;
+  logoSize?: number;
 }) {
   const lead = variant === "company" ? brand.company : brand.name;
   const showEndorse = endorsed && variant === "product";
+  const size = logoSize ?? (variant === "company" ? 28 : 18);
+
   return (
-    <span className={cn("inline-flex items-baseline gap-2", className)}>
-      {/* tree icon */}
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-        className={cn("shrink-0 self-center", tone === "light" ? "text-moss" : "text-moss-dark")}
-        aria-hidden
-      >
-        {/* trunk */}
-        <rect x="8" y="11" width="2" height="5" rx="0.5" className="fill-current opacity-60" />
-        {/* canopy — three overlapping triangles */}
-        <path d="M9 2 L 4 9 L 14 9 Z" className="fill-current opacity-30" />
-        <path d="M9 4 L 3 12 L 15 12 Z" className="fill-current opacity-20" />
-        <path d="M9 6 L 2 14 L 16 14 Z" className="fill-current opacity-15" />
-      </svg>
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      {variant === "company" ? (
+        <img
+          src="/images/trees-os-logo.png"
+          alt=""
+          width={size}
+          height={size}
+          className="shrink-0 object-contain"
+          aria-hidden
+        />
+      ) : (
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 18 18"
+          fill="none"
+          className={cn("shrink-0 self-center", tone === "light" ? "text-moss" : "text-moss-dark")}
+          aria-hidden
+        >
+          <rect x="8" y="11" width="2" height="5" rx="0.5" className="fill-current opacity-60" />
+          <path d="M9 2 L 4 9 L 14 9 Z" className="fill-current opacity-30" />
+          <path d="M9 4 L 3 12 L 15 12 Z" className="fill-current opacity-20" />
+          <path d="M9 6 L 2 14 L 16 14 Z" className="fill-current opacity-15" />
+        </svg>
+      )}
       <span
         className={cn(
           "text-[19px] font-black tracking-[-0.02em]",

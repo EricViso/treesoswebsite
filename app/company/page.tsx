@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { brand } from "@/lib/brand";
 import { manifesto } from "@/lib/content";
-import { HeroDark } from "@/components/marketing/HeroDark";
 import { TopNavDark } from "@/components/marketing/TopNavDark";
 import { SpeechBlock } from "@/components/marketing/SpeechBlock";
 import { Container, Button, Hl } from "@/components/marketing/primitives";
@@ -46,20 +45,72 @@ export default function Company() {
     <main className="bg-base">
       <TopNavDark variant="company" />
 
-      <HeroDark
-        showTopBar={false}
-        wordmarkVariant="company"
-        backgroundImage="/images/hero-company.jpg"
-        eyebrow="AI-first digital transformation"
-        title={
-          <>
-            We use AI to be more <Hl>human.</Hl>
-          </>
-        }
-        lead="Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance, our real-time talent orchestration for energy, is our first transformation."
-        primary={{ label: "Work with us →", href: brand.links.book, external: true, track: "booking:company-hero" }}
-        secondary={{ label: "See Treelance ↗", href: brand.sites.product, track: "cta:see-treelance" }}
-      />
+      {/* Trees OS hero with logo watermark */}
+      <header className="relative overflow-hidden bg-base py-20 max-[700px]:py-14">
+        {/* dotted grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(120%_90%_at_75%_0,#000_0%,transparent_72%)]"
+        />
+        {/* green glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-[10%] -top-[30%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.20)_0%,transparent_60%)] blur-2xl"
+        />
+        {/* bottom hairline */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(88,180,81,.45),transparent)]"
+        />
+
+        {/* big logo watermark */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-[5%] top-1/2 -translate-y-1/2 opacity-[0.07] max-[820px]:hidden"
+        >
+          <img
+            src="/images/trees-os-logo.png"
+            alt=""
+            width="400"
+            height="400"
+            className="object-contain"
+          />
+        </div>
+
+        <Container width="wide" className="relative z-10">
+          <div className="flex items-start gap-8">
+            {/* logo mark */}
+            <div className="shrink-0 max-[700px]:hidden">
+              <img
+                src="/images/trees-os-logo.png"
+                alt="Trees OS logo"
+                width="120"
+                height="120"
+                className="object-contain"
+              />
+            </div>
+            <div className="max-w-[45rem]">
+              <div className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
+                // AI-first digital transformation
+              </div>
+              <h1 className="text-[clamp(38px,6.4vw,68px)] font-black leading-[1.0] tracking-tightest text-fg">
+                We use AI to be more <Hl>human.</Hl>
+              </h1>
+              <p className="mt-6 max-w-[60ch] text-[clamp(16px,2.2vw,19px)] leading-[1.6] text-fg-muted">
+                Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance, our real-time talent orchestration for energy, is our first transformation.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3.5">
+                <Button href={brand.links.book} external track="booking:company-hero">
+                  Work with us →
+                </Button>
+                <Button href={brand.sites.product} variant="ghost" track="cta:see-treelance">
+                  See Treelance ↗
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </header>
 
       {/* MANIFESTO */}
       <SpeechBlock
@@ -217,7 +268,17 @@ export default function Company() {
           />
         </svg>
         <Container width="wide">
-          <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+          <div className="flex items-center justify-center gap-3">
+            <img
+              src="/images/trees-os-logo.png"
+              alt=""
+              width="24"
+              height="24"
+              className="shrink-0 object-contain"
+              aria-hidden
+            />
+            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+          </div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation
           </div>

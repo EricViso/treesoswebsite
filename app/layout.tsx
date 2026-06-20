@@ -21,6 +21,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(brand.sites.product),
   title: `${brand.name} — ${brand.tagline}`,
   description:
     "Treelance connects to the candidate database your energy staffing agency already owns, keeps it live through AI agents on WhatsApp & Telegram, and turns every open role into a shortlist of available, certification-verified people — SM2, BOSIET, BNSP, OPITO, GWO.",
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     description:
       "Stop re-sourcing the candidates you already own. Treelance makes your energy talent database live and surfaces people who already said yes.",
     type: "website",
+    images: [{ url: "/images/trees-os-logo.png", width: 1024, height: 1024 }],
   },
 };
 

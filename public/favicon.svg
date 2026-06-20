@@ -1,6 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1B3862"/>
-  <path d="M32 11 L43 31 H21 Z" fill="#58B451"/>
-  <path d="M32 21 L47 44 H17 Z" fill="#58B451"/>
-  <rect x="29" y="42" width="6" height="11" rx="2" fill="#58B451"/>
+  <rect width="64" height="64" rx="14" fill="#0F2440"/>
+  <!-- circuitry trunk -->
+  <line x1="32" y1="22" x2="32" y2="44" stroke="#58B451" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- circuit branches - left -->
+  <line x1="32" y1="26" x2="22" y2="36" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="22" cy="36" r="1.8" fill="#58B451"/>
+  <line x1="32" y1="30" x2="24" y2="38" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="24" cy="38" r="1.8" fill="#58B451"/>
+  <line x1="32" y1="34" x2="20" y2="42" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="20" cy="42" r="1.8" fill="#58B451"/>
+  <!-- circuit branches - right -->
+  <line x1="32" y1="26" x2="42" y2="36" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="42" cy="36" r="1.8" fill="#58B451"/>
+  <line x1="32" y1="30" x2="40" y2="38" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="40" cy="38" r="1.8" fill="#58B451"/>
+  <line x1="32" y1="34" x2="44" y2="42" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="44" cy="42" r="1.8" fill="#58B451"/>
+  <!-- top canopy / neural nodes -->
+  <circle cx="32" cy="18" r="2.5" fill="#58B451"/>
+  <line x1="32" y1="18" x2="26" y2="24" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="26" cy="24" r="1.5" fill="#58B451"/>
+  <line x1="32" y1="18" x2="38" y2="24" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="38" cy="24" r="1.5" fill="#58B451"/>
+  <!-- network links between top nodes -->
+  <line x1="26" y1="24" x2="38" y2="24" stroke="#58B451" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- root circuit lines - left -->
+  <line x1="32" y1="44" x2="28" y2="50" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="28" y1="50" x2="28" y2="54" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="28" cy="54" r="1.5" fill="none" stroke="#58B451" stroke-width="1.2"/>
+  <line x1="32" y1="44" x2="36" y2="50" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="36" y1="50" x2="36" y2="54" stroke="#58B451" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="36" cy="54" r="1.5" fill="none" stroke="#58B451" stroke-width="1.2"/>
+  <!-- root circuit lines - far -->
+  <line x1="32" y1="46" x2="24" y2="52" stroke="#58B451" stroke-width="1" stroke-linecap="round"/>
+  <line x1="24" y1="52" x2="22" y2="55" stroke="#58B451" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="22" cy="55" r="1.2" fill="none" stroke="#58B451" stroke-width="1"/>
+  <line x1="32" y1="46" x2="40" y2="52" stroke="#58B451" stroke-width="1" stroke-linecap="round"/>
+  <line x1="40" y1="52" x2="42" y2="55" stroke="#58B451" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="42" cy="55" r="1.2" fill="none" stroke="#58B451" stroke-width="1"/>
 </svg>
