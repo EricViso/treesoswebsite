@@ -25,6 +25,7 @@ export function TopNavDark({
             <a href="#demo" className={link}>Live demo</a>
             <a href="#pilot" className={link}>Pilot</a>
             <a href="#faq" className={link}>FAQ</a>
+            <a href="/blog" className={cn(link, "text-fg-faint")}>Blog</a>
             <a href={brand.sites.company} className={cn(link, "text-fg-faint")}>Trees OS ↗</a>
             <a
               href={brand.links.book}
