@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "signal-problem",
+    title: "The Signal Problem in Energy Hiring",
+    date: "2026-06-21",
+    excerpt:
+      "The slow part of energy hiring is not sourcing. It is the handoffs. Why most agencies are solving the wrong problem, and what actually compresses the cycle.",
+    author: "Quentin Cloarec · Trees OS",
+  },
+  {
     slug: "metacognition",
     title: "Metacognition: Why Some People Think Differently",
     date: "2026-06-21",
