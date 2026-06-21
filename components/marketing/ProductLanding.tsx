@@ -76,7 +76,7 @@ export function ProductLanding() {
             AI workforce orchestration for the <Hl>energy sector.</Hl>
           </>
         }
-        lead="Treelance connects to the candidate database your agency already owns, keeps it live through AI agents on WhatsApp and Telegram, and turns every open role into a shortlist of people who are available, certified and interested — matched on verifiable certifications, not black-box profiling. Built for energy staffing, in Malaysia."
+        lead="Treelance connects to the candidate database your agency already owns, keeps it live through AI agents on WhatsApp and Telegram, and turns every open role into a shortlist of people who are available, certified and interested. Matched on verifiable certifications, not black-box profiling. Built for energy staffing, in Malaysia."
         primary={{ label: "Bring us one open role →", href: brand.links.book, external: true, track: "booking:hero" }}
         secondary={{ label: "See the live dashboard", href: "#demo", track: "cta:see-demo" }}
         compliance={["PDPA aligned", "AIGE principles", "Consent-first", "Audit trail"]}
@@ -295,7 +295,7 @@ export function ProductLanding() {
             Bring us one open role. We&apos;ll show you the matching live.
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
-            Forty-five minutes to map it together — then we run your own role end to
+            Forty-five minutes to map it together, then we run your own role end to
             end, in the room. You decide on what you see, not on what we claim.
           </p>
           <div className="relative mt-7 flex justify-center">

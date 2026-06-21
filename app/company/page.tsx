@@ -8,16 +8,16 @@ import { RootDivider } from "@/components/marketing/RootDivider";
 import { ForestNode } from "@/components/marketing/ForestNode";
 
 export const metadata: Metadata = {
-  title: `${brand.company} — AI-first digital transformation`,
+  title: `${brand.company} · AI-first digital transformation`,
   description:
-    "Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance is our first transformation.",
+    "Trees OS is an AI-first company. We rebuild traditional businesses to run on AI, then keep them running and improving forever. Treelance is our first transformation.",
 };
 
 const model = [
   {
     tag: "dogfood",
     title: "We run on it ourselves",
-    body: "Every part of Trees OS is AI-operated — delivery, research, ops, even this website. We don't recommend a transformation we haven't lived.",
+    body: "Every part of Trees OS is AI-operated: delivery, research, ops, even this website. We don't recommend a transformation we haven't lived.",
   },
   {
     tag: "transform",
@@ -27,13 +27,13 @@ const model = [
   {
     tag: "maintain",
     title: "We stay, and keep improving",
-    body: "We don't ship and leave. We run the AI systems we build and improve them every week — the work, and the relationship, are ongoing.",
+    body: "We don't ship and leave. We run the AI systems we build and improve them every week. The work and the relationship are ongoing.",
   },
 ];
 
 const proof = [
   "This site is instrumented and reviewed weekly by an AI analyst agent that proposes its own improvements.",
-  "Treelance runs on an agent fleet — matching, candidate outreach and the live dashboard.",
+  "Treelance runs on an agent fleet: matching, candidate outreach and the live dashboard.",
   "Internal delivery, research and content are AI-operated by default.",
 ];
 
@@ -97,7 +97,7 @@ export default function Company() {
                 We use AI to be more <Hl>human.</Hl>
               </h1>
               <p className="mt-6 max-w-[60ch] text-[clamp(16px,2.2vw,19px)] leading-[1.6] text-fg-muted">
-                Trees OS is an AI-first company. We rebuild traditional businesses to run on AI — then keep them running, and improving, forever. Treelance, our real-time talent orchestration for energy, is our first transformation.
+                Trees OS is an AI-first company. We rebuild traditional businesses to run on AI, then keep them running and improving forever. Treelance, our real-time talent orchestration for energy, is our first transformation.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3.5">
                 <Button href={brand.links.book} external track="booking:company-hero">
@@ -131,10 +131,10 @@ export default function Company() {
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />the model
           </div>
           <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
-            Not a tool we sell. A business we rebuild — and run.
+            Not a tool we sell. A business we rebuild and run.
           </h2>
           <p className="mt-4 max-w-[58ch] text-[16.5px] leading-[1.6] text-fg-muted">
-            These aren&apos;t phases. We do all three at once — on ourselves first,
+            These aren&apos;t phases. We do all three at once, on ourselves first,
             then for the businesses we transform.
           </p>
 
@@ -165,11 +165,11 @@ export default function Company() {
                 <ForestNode size={11} className="mr-1.5 -mt-0.5" />exhibit A
               </div>
               <h3 className="mt-2 text-[22px] font-extrabold tracking-[-0.01em] text-fg">
-                Treelance — our first transformation
+                Treelance. Our first transformation.
               </h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-fg-muted">
                 Real-time AI talent orchestration for energy staffing agencies, in
-                Malaysia. The proof that the model works — running live, today.
+                Malaysia. The proof that the model works. Running live, today.
               </p>
             </div>
             <div className="flex shrink-0 gap-3">
@@ -220,8 +220,8 @@ export default function Company() {
             If the model holds, we don&apos;t stop at one industry.
           </h2>
           <p className="mt-4 max-w-[60ch] text-[16.5px] leading-[1.6] text-fg-muted">
-            Energy staffing is the first. The same playbook — rebuild AI-first,
-            maintain forever — applies anywhere a traditional business is ready to
+            Energy staffing is the first. The same playbook, rebuild AI-first and
+            maintain forever, applies anywhere a traditional business is ready to
             be reinvented. In time, we back the operators doing exactly that.
             <span className="text-fg-faint"> More on that when it&apos;s real.</span>
           </p>
@@ -240,7 +240,7 @@ export default function Company() {
             Let&apos;s rebuild something.
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
-            If your business is ready to run on AI — not bolt it on — we should talk.
+            If your business is ready to run on AI, not bolt it on, we should talk.
           </p>
           <div className="relative mt-7 flex justify-center">
             <Button href={brand.links.book} external track="booking:company-final">
