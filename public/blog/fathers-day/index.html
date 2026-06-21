@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Romeo · A Father’s Day Letter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Nunito:wght@400;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4ecdc;
+      --sheet: #fbf6ea;
+      --ink: #29294a;
+      --ink-soft: #5d5c74;
+      --honey: #c0832a;
+      --honey-deep: #9a6716;
+      --sky: #6f8bab;
+      --sky-tint: #e7eef5;
+      --rose-tint: #f7ece1;
+      --line: rgba(41,41,74,0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(192,131,42,0.07), transparent 40%),
+        radial-gradient(circle at 84% 88%, rgba(111,139,171,0.08), transparent 42%);
+      color: var(--ink);
+      font-family: 'Nunito', system-ui, sans-serif;
+      line-height: 1.7;
+      padding: 40px 16px 72px;
+    }
+
+    .sheet {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--sheet);
+      border: 1px solid rgba(154,103,22,0.18);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 30px 60px -28px rgba(41,41,74,0.40);
+      border-radius: 4px;
+      padding: 60px 56px 52px;
+      position: relative;
+      animation: rise 0.7s ease-out both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .mast { text-align: center; margin-bottom: 14px; }
+
+    .bike { width: 92px; height: auto; display: block; margin: 0 auto 10px; }
+    .bike path, .bike circle { fill: none; stroke: var(--honey); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+
+    .eyebrow {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      color: var(--honey-deep);
+      line-height: 1;
+      margin: 0 0 6px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+      margin: 0 auto 14px;
+      max-width: 12ch;
+    }
+
+    .standfirst {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--ink-soft);
+      font-size: clamp(16px, 2.4vw, 19px);
+      max-width: 46ch;
+      margin: 0 auto;
+    }
+
+    .datemark {
+      margin-top: 18px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--honey-deep);
+    }
+
+    .dash {
+      border: 0; height: 0;
+      border-top: 2px dashed rgba(192,131,42,0.55);
+      max-width: 120px;
+      margin: 26px auto;
+    }
+
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(22px, 3.6vw, 30px);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      margin: 40px 0 12px;
+    }
+
+    p { font-size: 18px; margin: 0 0 16px; }
+
+    .lede { margin-top: 26px; }
+    .lede::first-letter {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 0.78;
+      float: left;
+      padding: 8px 12px 0 0;
+      color: var(--honey-deep);
+    }
+
+    em { font-style: italic; }
+    strong { font-weight: 700; color: var(--ink); }
+
+    ul, ol { margin: 6px 0 18px; padding: 0; list-style: none; }
+
+    .qlist li {
+      position: relative;
+      padding: 8px 0 8px 38px;
+      font-size: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .qlist li:last-child { border-bottom: 0; }
+    .qlist li::before {
+      content: "?";
+      position: absolute; left: 0; top: 7px;
+      width: 26px; height: 26px;
+      display: grid; place-items: center;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      color: var(--honey-deep);
+      background: var(--rose-tint);
+      border: 1px solid rgba(192,131,42,0.35);
+      border-radius: 50%;
+      font-size: 15px;
+    }
+
+    .prompts li { position: relative; padding: 6px 0 6px 26px; font-size: 18px; }
+    .prompts li::before { content: "›"; position: absolute; left: 4px; top: 4px; color: var(--honey); font-weight: 700; }
+
+    .two-kids {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 22px 0 6px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .kid { padding: 22px; }
+    .kid:first-child { border-right: 1px dashed rgba(192,131,42,0.5); }
+    .kid h3 { margin: 0 0 8px; font-family: 'Caveat', cursive; font-size: 26px; color: var(--honey-deep); font-weight: 700; }
+    .kid p { margin: 0; font-size: 16.5px; }
+
+    .bigword {
+      text-align: center;
+      margin: 30px auto;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 600;
+    }
+    .bigword b { color: var(--honey-deep); box-shadow: inset 0 -0.5em 0 rgba(192,131,42,0.16); }
+
+    .mirror {
+      background: var(--sky-tint);
+      border-left: 4px solid var(--sky);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 22px 0;
+    }
+    .mirror p:last-child { margin-bottom: 0; }
+
+    .pull {
+      margin: 38px 0;
+      padding-left: 22px;
+      border-left: 3px solid var(--honey);
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(21px, 3.6vw, 28px);
+      line-height: 1.3;
+    }
+
+    .keepsake-wrap { margin: 46px 0 40px; display: flex; justify-content: center; }
+    .keepsake {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      background:
+        repeating-linear-gradient(transparent, transparent 37px, rgba(111,139,171,0.16) 38px),
+        #fffdf6;
+      border: 1px solid rgba(192,131,42,0.45);
+      box-shadow: 0 18px 36px -20px rgba(41,41,74,0.5);
+      border-radius: 3px;
+      padding: 30px 30px 26px;
+      transform: rotate(-1.4deg);
+    }
+    .keepsake::before {
+      content: "";
+      position: absolute; top: -12px; left: 50%;
+      width: 116px; height: 26px;
+      transform: translateX(-50%) rotate(0.8deg);
+      background: rgba(192,131,42,0.22);
+      border: 1px dashed rgba(154,103,22,0.4);
+    }
+    .keepsake h3 { font-family: 'Caveat', cursive; font-weight: 700; font-size: 38px; color: var(--honey-deep); margin: 0 0 4px; text-align: center; }
+    .keepsake .sub { text-align: center; font-size: 14px; color: var(--ink-soft); margin: 0 0 16px; }
+    .keepsake ol {
+      counter-reset: q;
+      margin: 0; padding: 0;
+      font-family: 'Caveat', cursive;
+      font-size: 27px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .keepsake ol li { counter-increment: q; list-style: none; padding-left: 34px; position: relative; }
+    .keepsake ol li::before { content: counter(q) "."; position: absolute; left: 4px; color: var(--honey-deep); font-weight: 700; }
+
+    .closing { margin-top: 44px; }
+    .signoff {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 40px;
+      color: var(--honey-deep);
+      line-height: 1.1;
+      margin-top: 20px;
+    }
+    .signoff span { display: block; font-size: 30px; }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 22px;
+      border-top: 2px dashed rgba(192,131,42,0.45);
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+    footer .mark { font-family: 'Caveat', cursive; font-size: 24px; color: var(--honey-deep); margin-top: 8px; }
+
+    @media (max-width: 600px) {
+      .sheet { padding: 40px 26px 40px; }
+      p, .qlist li, .prompts li { font-size: 17px; }
+      .two-kids { grid-template-columns: 1fr; }
+      .kid:first-child { border-right: 0; border-bottom: 1px dashed rgba(192,131,42,0.5); }
+      .keepsake { transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .sheet { animation: none; } }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .sheet { box-shadow: none; border: 0; max-width: 100%; padding: 24px; }
+      .keepsake { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="mast">
+      <svg class="bike" viewBox="0 0 92 56" role="img" aria-label="A small bicycle">
+        <circle cx="20" cy="40" r="12" />
+        <circle cx="72" cy="40" r="12" />
+        <path d="M20 40 L43 40 L34 17 L20 40 Z" />
+        <path d="M43 40 L57 17 M34 17 L57 17 M57 17 L72 40" />
+        <path d="M29 16 L40 16 M52 14 L63 15" />
+        <circle cx="43" cy="40" r="2.2" />
+      </svg>
+      <p class="eyebrow">For Romeo, from Papa</p>
+      <h1>The Secret Superpower Behind AI</h1>
+      <p class="standfirst">A small story about thinking, learning, and using AI wisely. Written with love, for you.</p>
+      <p class="datemark">Father’s Day</p>
+    </header>
+
+    <hr class="dash" />
+
+    <p class="lede">Romeo, today is Father’s Day. I am far away from you, but you are with me every single day. A father is supposed to give gifts. So here is mine. It is not a toy you can hold in your hands. It is something better. It is a way of thinking that will help you for the rest of your life.</p>
+
+    <h2>Two children, one bicycle</h2>
+    <p>Imagine two children. They are given the same bicycle.</p>
+    <p>The first child jumps on and rides. When he falls, he gets up and tries again, and again, until he can ride. He is brave, and he never gives up. That is a real strength, and it will take him far.</p>
+    <p>The second child is brave too. He rides, he falls, he gets back up. But every few minutes, he also stops to think:</p>
+    <ul class="qlist">
+      <li>Why did I fall on that corner?</li>
+      <li>Why was that hill easier the second time?</li>
+      <li>How can I ride better tomorrow?</li>
+    </ul>
+    <p>Both children learn to ride. Both will do well. The second child just picks up one extra thing along the way: <em>how he learns</em>. And that quietly helps him get better, faster, at almost everything he ever tries.</p>
+
+    <div class="two-kids">
+      <div class="kid">
+        <h3>The first child</h3>
+        <p>Brave and stubborn. He keeps going until it works. Never giving up is a gift.</p>
+      </div>
+      <div class="kid">
+        <h3>The second child</h3>
+        <p>Just as brave. But he also watches himself ride, and asks why. He is thinking <em>about his thinking</em>.</p>
+      </div>
+    </div>
+
+    <p>The best, Romeo, is to be both. Brave enough to keep trying, and wise enough to watch yourself while you do.</p>
+
+    <p class="bigword">That second skill, watching how you think, has a name.<br />It is called <b>metacognition</b>.</p>
+
+    <h2>What that big word means</h2>
+    <p>It is a big word for a simple thing.</p>
+    <p><strong>Metacognition means thinking about your own thinking.</strong></p>
+    <p>Imagine a small, wise coach who lives inside your head. When something is hard, the coach leans in and asks:</p>
+    <ul class="qlist">
+      <li>What do I think?</li>
+      <li>Why do I think it?</li>
+      <li>Could I be wrong?</li>
+      <li>What am I missing?</li>
+    </ul>
+    <p>Most people never hear that little coach. The ones who do go far. Remember those four questions. We will come back to them.</p>
+
+    <h2>What this has to do with AI</h2>
+    <p>One day soon, you will use machines far smarter than any I had when I was a boy. People call it AI. Think of it as the biggest, fastest library in the world. You can ask it almost anything.</p>
+    <p>But here is a secret. The people who get the most from AI are not the ones who know the most. They are the ones who ask the best questions.</p>
+    <p>A lazy question gets a lazy answer: <strong>“AI, do my homework.”</strong></p>
+    <p>A good question opens a door:</p>
+    <ul class="prompts">
+      <li>Show me three different ways to solve this.</li>
+      <li>What mistake might I be making?</li>
+      <li>Explain it like I am eight years old.</li>
+      <li>Why might this answer be wrong?</li>
+    </ul>
+    <p>Those people do not use AI like a machine. They use it like a thinking partner.</p>
+
+    <div class="mirror">
+      <p>Here is the best way to understand it, Romeo. <strong>AI is a mirror for your mind.</strong></p>
+      <p>Ask it small questions, and it gives you small answers. Ask it deep questions, and it gives you deep ones. The mirror shows the quality of your own thinking. So the real work is never the machine. The real work is you.</p>
+    </div>
+
+    <p class="pull">The future belongs to people who can think about their thinking, even while a machine is helping them.</p>
+
+    <h2>Why your mind matters more</h2>
+    <p>AI can give you answers. But AI cannot live your life for you. It will never have to choose.</p>
+    <p>You will. You will have to decide:</p>
+    <ul class="prompts">
+      <li>Which answer is useful.</li>
+      <li>Which answer is true.</li>
+      <li>Which one actually matters.</li>
+      <li>And what you will do next.</li>
+    </ul>
+    <p>That is why your mind will always matter more than the machine.</p>
+
+    <div class="keepsake-wrap">
+      <div class="keepsake">
+        <h3>Romeo’s Rule</h3>
+        <p class="sub">The four questions the little coach asks. Keep them.</p>
+        <ol>
+          <li>What do I think?</li>
+          <li>Why do I think it?</li>
+          <li>Could I be wrong?</li>
+          <li>What am I missing?</li>
+        </ol>
+      </div>
+    </div>
+
+    <p>Most people stop at the first question. The people who build amazing things keep going.</p>
+    <p><strong>That is metacognition. It is not just a school skill. It is a superpower for your whole life.</strong></p>
+
+    <section class="closing">
+      <h2>One last thing, from Papa</h2>
+      <p>I will not always be next to you to answer your questions. But if you learn to ask your own, you will never truly be alone with a problem.</p>
+      <p>You are smart. You are kind. And you are braver than you know. Wherever you are, and whatever you choose to become, I am already proud of you.</p>
+      <p>Think well. Think for yourself. And know that your dad is thinking of you, today and always.</p>
+      <p class="signoff">With all my love,<span>Papa</span></p>
+    </section>
+
+    <footer>
+      <p>Written for Father’s Day, because the greatest gift a father can give is not the answers, but the way to find them.</p>
+      <p class="mark">For Romeo, from Papa</p>
+    </footer>
+  </main>
+</body>
+</html>
