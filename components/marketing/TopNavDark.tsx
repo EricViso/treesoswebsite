@@ -39,6 +39,7 @@ export function TopNavDark({
         ) : (
           <>
             <a href="/about" className={link}>About</a>
+            <a href="/services" className={link}>Services</a>
             <a href="/blog" className={link}>Blog</a>
             <a href={brand.sites.product} className={cn(link, "text-fg-faint")}>Treelance ↗</a>
             <a
