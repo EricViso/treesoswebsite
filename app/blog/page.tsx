@@ -36,6 +36,14 @@ const posts = [
     tag: "Essay",
     tagClass: "bg-white/10 text-fg-muted border-white/20",
   },
+  {
+    date: "2026-06-22",
+    title: "Night Journal, 22 June",
+    desc: "You opened tonight by building. You closed it by telling the truth. That is the whole story, and it is a good one.",
+    href: "/blog/night-journal/",
+    tag: "Journal",
+    tagClass: "bg-amber/15 text-amber border-amber/30",
+  },
 ];
 
 export default function Blog() {

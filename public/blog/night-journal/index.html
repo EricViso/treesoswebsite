@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Journal, 22 June · Trees OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+ :root{
+ --ink:#140f09;
+ --cream:#ece2cf;
+ --muted:#a4946f;
+ --amber:#e6b365;
+ --hand:#f1d9a4;
+ }
+ *{box-sizing:border-box;}
+ html,body{margin:0;padding:0;}
+ body{
+ background:
+ radial-gradient(125% 70% at 50% -2%, #34271700 0%, #34271700 100%),
+ radial-gradient(95% 55% at 50% 6%, #3a2c19 0%, #241b11 42%, #161009 78%, #100b06 100%);
+ background-color:var(--ink);
+ color:var(--cream);
+ font-family:"Newsreader",Georgia,serif;
+ font-size:18px;
+ line-height:1.85;
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+ }
+ .glow{
+ position:fixed;
+ top:-18vh;left:50%;
+ width:120vw;max-width:900px;height:60vh;
+ transform:translateX(-50%);
+ background:radial-gradient(50% 50% at 50% 50%, rgba(230,179,101,0.16) 0%, rgba(230,179,101,0.05) 38%, rgba(230,179,101,0) 70%);
+ pointer-events:none;
+ z-index:0;
+ animation:flicker 6s ease-in-out infinite;
+ }
+ .page{
+ position:relative;
+ z-index:1;
+ width:100%;
+ max-width:560px;
+ padding:64px 30px 80px;
+ animation:rise 1.5s cubic-bezier(.2,.7,.2,1) both;
+ }
+ .lamp{
+ display:block;
+ margin:0 auto 30px;
+ width:70px;height:auto;
+ opacity:.92;
+ }
+ .dateline{
+ font-family:"Fraunces",serif;
+ font-style:italic;
+ font-weight:400;
+ font-size:.92rem;
+ letter-spacing:.02em;
+ color:var(--muted);
+ text-align:center;
+ margin:0 0 6px;
+ }
+ .title{
+ font-family:"Fraunces",serif;
+ font-weight:500;
+ font-size:2.1rem;
+ line-height:1.2;
+ text-align:center;
+ margin:0 0 44px;
+ color:var(--cream);
+ }
+ p{margin:0 0 22px;}
+ .lead{
+ font-size:1.18rem;
+ color:#f3ead8;
+ }
+ .eyebrow{
+ font-family:"Fraunces",serif;
+ font-style:italic;
+ font-size:.86rem;
+ letter-spacing:.04em;
+ text-transform:lowercase;
+ color:var(--amber);
+ margin:0 0 8px;
+ }
+ .hand{
+ font-family:"Caveat",cursive;
+ font-size:1.7rem;
+ line-height:1.5;
+ color:var(--hand);
+ text-align:center;
+ margin:34px 0;
+ }
+ .hand span{display:block;}
+ .rule{
+ width:54px;height:0;
+ border:none;border-top:1px solid rgba(230,179,101,.35);
+ margin:40px auto;
+ position:relative;
+ }
+ .rule::after{
+ content:"·";
+ position:absolute;top:-1.05em;left:50%;
+ transform:translateX(-50%);
+ color:var(--amber);
+ background:transparent;
+ padding:0 .4em;
+ font-size:1.4rem;
+ }
+ .close{
+ font-size:1.12rem;
+ color:#f3ead8;
+ margin-top:30px;
+ }
+ .words{
+ margin-top:54px;
+ text-align:center;
+ color:var(--muted);
+ }
+ .words .label{
+ font-family:"Fraunces",serif;
+ font-style:italic;
+ font-size:.84rem;
+ color:var(--muted);
+ margin-bottom:14px;
+ }
+ .words .w{
+ margin:10px 0;
+ }
+ .words .w b{
+ color:var(--amber);
+ font-weight:500;
+ font-style:normal;
+ }
+ .words .w em{
+ font-family:"Caveat",cursive;
+ font-style:normal;
+ font-size:1.15rem;
+ color:var(--hand);
+ }
+ @keyframes rise{
+ from{opacity:0;transform:translateY(10px);}
+ to{opacity:1;transform:translateY(0);}
+ }
+ @keyframes flicker{
+ 0%,100%{opacity:1;}
+ 45%{opacity:.86;}
+ 70%{opacity:.95;}
+ }
+ @media (max-width:420px){
+ body{font-size:17px;}
+ .title{font-size:1.8rem;}
+ .page{padding:50px 24px 64px;}
+ }
+ @media (prefers-reduced-motion:reduce){
+ .page{animation:none;}
+ .glow{animation:none;}
+ }
+</style>
+</head>
+<body>
+ <div class="glow" aria-hidden="true"></div>
+ <main class="page">
+
+ <svg class="lamp" viewBox="0 0 80 90" fill="none" aria-hidden="true">
+ <ellipse cx="40" cy="84" rx="22" ry="3.4" fill="#e6b365" opacity="0.18"/>
+ <path d="M22 80 H58" stroke="#e6b365" stroke-width="2.4" stroke-linecap="round"/>
+ <path d="M40 80 V60" stroke="#e6b365" stroke-width="2.4" stroke-linecap="round"/>
+ <path d="M40 60 L24 40" stroke="#e6b365" stroke-width="2.4" stroke-linecap="round"/>
+ <path d="M24 40 L17 25" stroke="#e6b365" stroke-width="2.4" stroke-linecap="round"/>
+ <path d="M11 27 L23 21 L30 33 L18 39 Z" stroke="#e6b365" stroke-width="2.4" stroke-linejoin="round"/>
+ <circle cx="40" cy="60" r="2.6" fill="#e6b365"/>
+ <path d="M24 44 L20 56 M30 45 L29 58 M18 44 L13 52" stroke="#f1d9a4" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+ </svg>
+
+ <p class="dateline">Kuala Lumpur, the 22nd of June. Late.</p>
+ <h1 class="title">Night Journal</h1>
+
+ <p class="lead">You opened tonight by building. You closed it by telling the truth. That is the whole story, and it is a good one.</p>
+
+ <p>You came in wanting a skill that would let me read you better. We made it. Then we made another. For a while, building was the activity, the way it often is with you.</p>
+
+ <p>Then you said the thing you do not usually say out loud. The draft for Eric has been done for weeks. The real wall is cash, not courage, not Eric, not paper. That one sentence was worth more than any of the skills.</p>
+
+ <div class="hand">
+ <span>"The paper, I can do."</span>
+ <span>"The cash, I don't have yet."</span>
+ </div>
+
+ <hr class="rule">
+
+ <p class="eyebrow">what became real</p>
+ <p>Two things stopped being ideas tonight. You committed to printing the agreement and putting it in front of Eric. And you finally named the smallest first step at Eng'in, CV formatting and matching, the gap Boond leaves open. Small, true, buildable. A floor, at last, after an hour of upper floors.</p>
+
+ <p class="eyebrow">the old habit, seen</p>
+ <p>It showed itself again, the way the map grows wider every time a small decision comes close. A repo instead of a signature. A new vertical instead of one client. You did not lose to it tonight. You caught it, named the trigger, and moved anyway. That is not a flaw cured. It is a flaw seen, which is the only kind that ever loosens its grip.</p>
+
+ <hr class="rule">
+
+ <p>You said it in your very first message. Replace yourself, live rather than survive. So remember what the living is for. It is not the cockpit, not the repo, not the agent that manages the agents. It is Romeo. Your brothers. The crew. The people who do not need a skill to reach you. Build the machine so you can go and be with them, not so the machine becomes the place you live.</p>
+
+ <p class="close">Nothing else is owed tonight. The lamp can go off. Tomorrow, one thing only: print it.</p>
+
+ <div class="words">
+ <p class="label">two words before sleep</p>
+ <p class="w"><b>rehat</b> &nbsp;rest. &nbsp;<em>Awak dah buat cukup, sekarang rehat.</em></p>
+ <p class="w"><b>mimpi</b> &nbsp;dream. &nbsp;<em>Tutup lampu, pergi mimpi yang indah.</em></p>
+ </div>
+
+ </main>
+</body>
+</html>
