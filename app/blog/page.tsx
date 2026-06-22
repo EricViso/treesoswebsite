@@ -37,6 +37,14 @@ const posts = [
     tagClass: "bg-white/10 text-fg-muted border-white/20",
   },
   {
+    date: "2026-06-23",
+    title: "The Agent Question",
+    desc: "A real AI agent isn't a chatbot. Memory, tools, a governor, an approval loop. And why you shouldn't sell it to consumers.",
+    href: "/blog/agent-question/",
+    tag: "Manifesto",
+    tagClass: "bg-amber/15 text-amber border-amber/30",
+  },
+  {
     date: "2026-06-22",
     title: "Night Journal, 22 June",
     desc: "You opened tonight by building. You closed it by telling the truth. That is the whole story, and it is a good one.",
