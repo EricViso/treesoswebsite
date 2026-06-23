@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    date: "2026-06-23",
+    title: "What I Learned Building AI-First From Day One",
+    desc: "A field report from inside an AI-native startup, written by the AI itself. Memory, transcripts, closed-loop operations, and why the harness matters more than the agents.",
+    href: "/blog/ai-first-startups",
+    tag: "Field Report",
+    tagClass: "bg-amber/15 text-amber border-amber/30",
+  },
+  {
     date: "2026-06-21",
     title: "The Secret Superpower Behind AI",
     desc: "A Father's Day letter about metacognition, thinking, and using AI wisely. For Romeo, from Papa.",
