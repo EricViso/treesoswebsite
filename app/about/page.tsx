@@ -10,14 +10,14 @@ import { RootDivider } from "@/components/marketing/RootDivider";
 export const metadata: Metadata = {
   title: `${brand.company} · Who we are`,
   description:
-    "Trees OS was founded by Eric Miki and Quentin Cloarec. Two builders who believe the point of automation isn't to remove people — it's to let them do what only people can do.",
+    "Trees OS was founded by Eric Miki, Quentin Cloarec, and Nathaniella. Three builders who believe the point of automation isn't to remove people — it's to let them do what only people can do.",
 };
 
 const founders = [
   {
     name: "Eric Miki",
     role: "Founder, Trees OS",
-    avatar: null, // initials fallback
+    avatar: null,
     initials: "EM",
     bio: [
       "Engineer and entrepreneur with a physics background. Based in Kuala Lumpur, with roots that span South America and Asia. Speaks English, French and Japanese, and builds at the intersection of systems thinking and extreme automation.",
@@ -47,6 +47,22 @@ const founders = [
     ],
     linkedin: "https://www.linkedin.com/in/quentincloarec",
     email: "quentin@treesos.io",
+  },
+  {
+    name: "Nathaniella",
+    role: "Co-Founder, Trees OS",
+    avatar: null,
+    initials: "NA",
+    bio: [
+      "Nathaniella is a co-founder of Trees OS, working alongside Eric and Quentin on the Treelance product and voice agent infrastructure.",
+    ],
+    focus: [
+      "Voice agent design & prompt engineering",
+      "Treelance talent operations",
+      "Product development",
+    ],
+    linkedin: "",
+    email: "nathaniella@trees-engineering.com",
   },
 ];
 
@@ -78,10 +94,10 @@ export default function About() {
             // about
           </div>
           <h1 className="mt-4 max-w-[20ch] text-[clamp(32px,5.6vw,62px)] font-black leading-[1.0] tracking-tightest text-fg">
-            Two builders. One operating system.
+            Three builders. One operating system.
           </h1>
           <p className="mt-5 max-w-[56ch] text-[clamp(15px,2vw,18px)] leading-[1.6] text-fg-muted">
-            Trees OS was founded on a shared intuition: most companies bolt AI onto a broken process and call it transformation. We think that's backwards. Eric and Quentin started with the operating system and built the product from there.
+            Trees OS was founded on a shared conviction: most companies bolt AI onto a broken process and call it transformation. We think that's backwards. Eric, Quentin and Nathaniella started with the operating system and built the product from there.
           </p>
         </Container>
       </header>
@@ -173,7 +189,7 @@ export default function About() {
             Product meets infrastructure.
           </h2>
           <p className="mt-4 max-w-[58ch] text-[16px] leading-[1.6] text-fg-muted">
-            Quentin knew the energy staffing problem from the inside: the dead databases, the manual cert checks, the missed mobilisations. Eric knew how to build the AI infrastructure that could solve it — agent fleets, persistent memory, closed-loop orchestration. One brought the problem. The other brought the architecture.
+            Quentin knew the energy staffing problem from the inside: the dead databases, the manual cert checks, the missed mobilisations. Eric knew how to build the AI infrastructure that could solve it — agent fleets, persistent memory, closed-loop orchestration. Nathaniella brought the product lens — designing the voice agent experiences, shaping how talent and clients interact with Treelance.
           </p>
           <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.6] text-fg-muted">
             What they share is the conviction that AI transforms a business when it runs it, not when it's bolted on. Treelance is the first product of that conviction. The Miki Mafia, a venture studio to teach other founders how to replicate the model, is the long game.
