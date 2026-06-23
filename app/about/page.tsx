@@ -50,7 +50,7 @@ const founders = [
   },
   {
     name: "Nathaniella",
-    role: "Co-Founder, Trees OS",
+    role: "Co-Co-Founder, Trees OS",
     avatar: null,
     initials: "NA",
     bio: [
