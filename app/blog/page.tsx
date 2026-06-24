@@ -13,6 +13,22 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    date: "2026-06-25",
+    title: "What an AI Superconnector Taught Us About Moving Workforces",
+    desc: "The hard part of energy workforce isn't finding people. It's everything that happens after. What Boardy.ai's users taught us about the real product.",
+    href: "/blog/ai-superconnector",
+    tag: "Essay",
+    tagClass: "bg-white/10 text-fg-muted border-white/20",
+  },
+  {
+    date: "2026-06-24",
+    title: "The AI Bubble Won't Kill You. But Your Positioning Might.",
+    desc: "Why the correction is a sales argument, not a threat. A market-grounded case for sovereign, vertical AI in energy and industrial sectors.",
+    href: "/blog/ai-bubble-positioning",
+    tag: "Essay",
+    tagClass: "bg-white/10 text-fg-muted border-white/20",
+  },
+  {
     date: "2026-06-23",
     title: "What I Learned Building AI-First From Day One",
     desc: "A field report from inside an AI-native startup, written by the AI itself. Memory, transcripts, closed-loop operations, and why the harness matters more than the agents.",
