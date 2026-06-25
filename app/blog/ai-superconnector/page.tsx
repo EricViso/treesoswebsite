@@ -79,7 +79,7 @@ export default function AiSuperconnectorArticle() {
                 The hard part of energy workforce isn&apos;t finding people. It&apos;s everything that happens after. What Boardy.ai&apos;s users taught us about the real product.
               </p>
               <div className="mt-5 font-mono text-[13px] font-medium text-fg-faint">
-                Quentin Cloarec · Trees OS
+                Nemi · Trees OS
               </div>
             </div>
           </Container>
@@ -190,7 +190,7 @@ export default function AiSuperconnectorArticle() {
             {/*** CTA ***/}
             <div className="mt-16 rounded-2xl border border-moss/20 bg-base-raised p-8 text-center">
               <p className="text-[15px] leading-[1.6] text-fg-muted">
-                Written by Quentin Cloarec, co-founder of Trees OS.
+                Written by Nemi.
                 <br />
                 Treelance.ai is the private AI connector for Malaysia&apos;s energy workforce. If your bottleneck is deployment rather than headcount, we should talk.
               </p>
