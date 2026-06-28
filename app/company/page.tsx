@@ -6,6 +6,7 @@ import { SpeechBlock } from "@/components/marketing/SpeechBlock";
 import { Container, Button, Hl } from "@/components/marketing/primitives";
 import { RootDivider } from "@/components/marketing/RootDivider";
 import { ForestNode } from "@/components/marketing/ForestNode";
+import { Reveal, Stagger } from "@/components/marketing/Reveal";
 
 export const metadata: Metadata = {
   title: `${brand.company} · AI-first digital transformation`,
@@ -138,10 +139,10 @@ export default function Company() {
             then for the businesses we transform.
           </p>
 
-          <div className="mt-12 grid grid-cols-3 gap-4 max-[820px]:grid-cols-1">
+          <Stagger staggerMs={120} className="mt-12 grid grid-cols-3 gap-4 max-[820px]:grid-cols-1">
             {model.map((m) => (
+              <Reveal key={m.title} delay={0}>
               <div
-                key={m.title}
                 className="rounded-2xl border border-subtle bg-base-raised p-6 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
                 <div className="mb-4 inline-block rounded-md border border-subtle bg-overlay-subtle px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-moss">
@@ -150,8 +151,9 @@ export default function Company() {
                 <h3 className="text-[18px] font-bold tracking-[-0.01em] text-fg">{m.title}</h3>
                 <p className="mt-2 text-[14px] leading-[1.6] text-fg-muted">{m.body}</p>
               </div>
+            </Reveal>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 

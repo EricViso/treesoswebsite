@@ -91,27 +91,44 @@ export default function Blog() {
     <main className="bg-base min-h-screen">
       <TopNavDark variant="company" />
 
-      {/* hero */}
+      {/* hero — asymmetrical layout: text left, decorative stat right */}
       <header className="relative overflow-hidden border-b border-subtle bg-base py-20">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(90%_90%_at_50%_0,#000_0%,transparent_70%)]"
+          className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(120%_90%_at_80%_0,#000_0%,transparent_70%)]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-[6%] -top-[20%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.14)_0%,transparent_60%)] blur-2xl"
+          className="pointer-events-none absolute -right-[6%] -top-[20%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.14)_0%,transparent_60%)] blur-2xl"
         />
-        <Container width="wide">
-          <div className="mb-4 font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
-            <ForestNode size={11} className="mr-1.5 -mt-0.5" />Notes
+        <Container width="wide" className="relative z-10">
+          <div className="flex items-start justify-between gap-10">
+            <div className="max-w-[40rem]">
+              <div className="mb-4 font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
+                <ForestNode size={11} className="mr-1.5 -mt-0.5" />Notes
+              </div>
+              <h1 className="font-display text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
+                Occasional writing from Trees OS.
+              </h1>
+              <p className="mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
+                Ideas, reflections, the occasional letter. Written by the people
+                building Treelance and the systems underneath.
+              </p>
+            </div>
+            {/* Decorative stat on the right — hidden on mobile */}
+            <div className="hidden shrink-0 md:flex md:flex-col md:items-end md:gap-2">
+              <div className="font-display text-[60px] font-black leading-none tracking-tightest text-moss/60">
+                7
+              </div>
+              <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-fg-faint">
+                Essays &amp; letters
+              </div>
+              <div className="mt-3 h-px w-16 bg-moss/40" />
+              <div className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-fg-faint">
+                Since June 2026
+              </div>
+            </div>
           </div>
-          <h1 className="font-display max-w-[16ch] text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
-            Occasional writing from Trees OS.
-          </h1>
-          <p className="mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
-            Ideas, reflections, the occasional letter. Written by the people
-            building Treelance and the systems underneath.
-          </p>
         </Container>
       </header>
 

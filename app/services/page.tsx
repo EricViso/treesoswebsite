@@ -4,6 +4,7 @@ import { TopNavDark } from "@/components/marketing/TopNavDark";
 import { Container, Button } from "@/components/marketing/primitives";
 import { RootDivider } from "@/components/marketing/RootDivider";
 import { ForestNode } from "@/components/marketing/ForestNode";
+import { Reveal, Stagger } from "@/components/marketing/Reveal";
 
 export const metadata: Metadata = {
   title: `Services — ${brand.company}`,
@@ -148,10 +149,11 @@ export default function Services() {
       {/* Service cards */}
       <section className="py-20">
         <Container width="wide">
+          <Reveal>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {services.map((s, i) => (
+              <Reveal key={s.tag} delay={i * 100}>
               <div
-                key={s.tag}
                 className="relative flex flex-col rounded-2xl border border-subtle bg-base-raised p-8 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
                 {/* tag */}
@@ -205,8 +207,10 @@ export default function Services() {
                   </a>
                 </div>
               </div>
+            </Reveal>
             ))}
           </div>
+        </Reveal>
         </Container>
       </section>
 

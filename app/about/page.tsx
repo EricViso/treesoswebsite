@@ -6,6 +6,7 @@ import {
   Button,
 } from "@/components/marketing/primitives";
 import { RootDivider } from "@/components/marketing/RootDivider";
+import { Reveal, Stagger } from "@/components/marketing/Reveal";
 
 export const metadata: Metadata = {
   title: `${brand.company} · Who we are`,
@@ -106,10 +107,10 @@ export default function About() {
       <section className="relative overflow-hidden bg-base py-10 pb-20">
         <RootDivider className="absolute top-0" />
         <Container width="wide">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Stagger staggerMs={120} className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {founders.map((founder) => (
+              <Reveal key={founder.name} delay={0}>
               <div
-                key={founder.name}
                 className="relative flex flex-col rounded-2xl border border-subtle bg-base-raised p-8 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
                 {/* Avatar / initials */}
@@ -169,8 +170,9 @@ export default function About() {
                   </a>
                 </div>
               </div>
+            </Reveal>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 
