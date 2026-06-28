@@ -110,10 +110,10 @@ export default function About() {
             {founders.map((founder) => (
               <div
                 key={founder.name}
-                className="relative flex flex-col rounded-2xl border border-white/[0.08] bg-base-raised p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_2px_10px_rgba(0,0,0,0.45)]"
+                className="relative flex flex-col rounded-2xl border border-subtle bg-base-raised p-8 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
                 {/* Avatar / initials */}
-                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-xl border border-white/[0.08] bg-moss/10 text-2xl font-black tracking-tight text-moss select-none">
+                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-xl border border-subtle bg-moss/10 text-2xl font-black tracking-tight text-moss select-none">
                   {founder.initials}
                 </div>
 
@@ -149,7 +149,7 @@ export default function About() {
                 </div>
 
                 {/* Links */}
-                <div className="mt-6 flex items-center gap-4 border-t border-white/[0.06] pt-5">
+                <div className="mt-6 flex items-center gap-4 border-t border-subtle pt-5">
                   <a
                     href={founder.linkedin}
                     target="_blank"
@@ -233,7 +233,7 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <svg
           viewBox="0 0 1200 40"
           preserveAspectRatio="none"

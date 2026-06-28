@@ -125,7 +125,7 @@ export default function MetacognitionArticle() {
               Understanding this gap — and what to do about it — is the point of this article.
             </P>
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** WHAT IS METACOGNITION ***/}
             <ArticleSection title="What Is Metacognition?">
@@ -148,7 +148,7 @@ export default function MetacognitionArticle() {
               </P>
             </ArticleSection>
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** ROUGH MODEL ***/}
             <ArticleSection title="A Rough Model">
@@ -193,7 +193,7 @@ export default function MetacognitionArticle() {
               </ArticleSection>
             ))}
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** FOUNDER TRAP ***/}
             <ArticleSection title="The Founder Trap">
@@ -223,7 +223,7 @@ export default function MetacognitionArticle() {
               </P>
             </ArticleSection>
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** MBTI ***/}
             <ArticleSection title="MBTI Correlations">
@@ -246,7 +246,7 @@ export default function MetacognitionArticle() {
               </P>
             </ArticleSection>
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** SO WHAT ***/}
             <ArticleSection title="So What?">
@@ -270,7 +270,7 @@ export default function MetacognitionArticle() {
               </ul>
             </ArticleSection>
 
-            <hr className="my-10 border-white/[0.08]" />
+            <hr className="my-10 border-subtle" />
 
             {/*** BOTTOM LINE ***/}
             <ArticleSection title="Bottom Line">
@@ -315,7 +315,7 @@ export default function MetacognitionArticle() {
       </article>
 
       {/* FOOTER */}
-      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <Container width="wide">
           <div className="flex items-center justify-center gap-3">
             <img

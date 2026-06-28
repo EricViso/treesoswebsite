@@ -112,7 +112,7 @@ export default function Services() {
       <TopNavDark variant="company" />
 
       {/* Hero */}
-      <header className="relative overflow-hidden border-b border-white/[0.06] bg-base py-20">
+      <header className="relative overflow-hidden border-b border-subtle bg-base py-20">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(90%_90%_at_50%_0,#000_0%,transparent_70%)]"
@@ -152,7 +152,7 @@ export default function Services() {
             {services.map((s, i) => (
               <div
                 key={s.tag}
-                className="relative flex flex-col rounded-2xl border border-white/[0.08] bg-base-raised p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_2px_10px_rgba(0,0,0,0.45)]"
+                className="relative flex flex-col rounded-2xl border border-subtle bg-base-raised p-8 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
                 {/* tag */}
                 <div className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-moss">
@@ -191,7 +191,7 @@ export default function Services() {
                 </div>
 
                 {/* Price + CTA */}
-                <div className="mt-6 flex items-center justify-between gap-4 border-t border-white/[0.06] pt-5">
+                <div className="mt-6 flex items-center justify-between gap-4 border-t border-subtle pt-5">
                   <span className="font-mono text-[12px] font-semibold text-moss">
                     {s.price}
                   </span>
@@ -318,7 +318,7 @@ export default function Services() {
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <RootDivider className="absolute top-0" />
         <Container width="wide">
           <div className="flex items-center justify-center gap-3">

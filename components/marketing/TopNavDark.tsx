@@ -8,7 +8,7 @@ import { Wordmark } from "./Wordmark";
 
 const link = "mx-1 hidden text-[13.5px] font-medium text-fg-muted hover:text-fg sm:inline";
 const mobileLink =
-  "block px-4 py-3 text-[15px] font-medium text-fg-muted hover:text-fg hover:bg-white/[0.04] rounded-lg transition-colors";
+  "block px-4 py-3 text-[15px] font-medium text-fg-muted hover:text-fg hover:bg-overlay-subtle rounded-lg transition-colors";
 
 /**
  * Sticky dark nav. Product variant carries section links + the pilot CTA and a
@@ -43,7 +43,7 @@ export function TopNavDark({
         ] as const);
 
   return (
-    <nav className="sticky top-0 z-30 border-b border-white/[0.07] bg-base/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-30 border-b border-subtle bg-base/80 backdrop-blur-md">
       <Container width="wide" className="flex h-[58px] items-center gap-2">
         <a href="/" className="no-underline" onClick={closeMenu}>
           <Wordmark variant={variant} />
@@ -93,7 +93,7 @@ export function TopNavDark({
 
       {/* Mobile menu panel */}
       {menuOpen && (
-        <div className="border-t border-white/[0.07] bg-base sm:hidden">
+        <div className="border-t border-subtle bg-base sm:hidden">
           <Container width="wide" className="py-4 pb-6">
             <div className="flex flex-col gap-1">
               {navLinks.map(({ href, label }) => (
@@ -102,7 +102,7 @@ export function TopNavDark({
                 </a>
               ))}
             </div>
-            <div className="mt-4 border-t border-white/[0.06] pt-4">
+            <div className="mt-4 border-t border-subtle pt-4">
               <a
                 href={brand.links.book}
                 className="flex w-full items-center justify-center rounded-lg bg-moss px-4 py-3 text-[14px] font-semibold text-[#0e2a0c] no-underline hover:brightness-105"

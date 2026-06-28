@@ -34,7 +34,7 @@ function H3({ children }: { children: React.ReactNode }) {
 }
 
 function HR() {
-  return <hr className="my-10 border-white/[0.08]" />;
+  return <hr className="my-10 border-subtle" />;
 }
 
 function UL({ children }: { children: React.ReactNode }) {
@@ -238,7 +238,7 @@ export default function AiBubblePositioningArticle() {
       </article>
 
       {/* FOOTER */}
-      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <Container width="wide">
           <div className="flex items-center justify-center gap-3">
             <img

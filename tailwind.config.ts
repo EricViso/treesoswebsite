@@ -24,16 +24,24 @@ const config: Config = {
           dark: "#2F6E2A",
           soft: "#EAF6E9",
         },
-        // dark-mode surfaces (near-black, faintly blue) + foreground scale
+        // Theme-aware surfaces and text (adapt via CSS variables)
         base: {
-          DEFAULT: "#0A0E16", // page background
-          raised: "#10182A", // cards / elevated surfaces
-          rail: "#0D1422", // nav / footers
+          DEFAULT: "rgb(var(--color-base) / <alpha-value>)",
+          raised: "rgb(var(--color-base-raised) / <alpha-value>)",
+          rail: "rgb(var(--color-base-rail) / <alpha-value>)",
         },
         fg: {
-          DEFAULT: "#E7ECF3", // primary text on dark
-          muted: "#93A1B4", // secondary text on dark
-          faint: "#5C6B80", // tertiary / hairline labels
+          DEFAULT: "rgb(var(--color-fg) / <alpha-value>)",
+          muted: "rgb(var(--color-fg-muted) / <alpha-value>)",
+          faint: "rgb(var(--color-fg-faint) / <alpha-value>)",
+        },
+        border: {
+          subtle: "rgb(var(--color-border-subtle))",
+        },
+        overlay: {
+          subtle: "rgb(var(--color-overlay-subtle))",
+          light: "rgb(var(--color-overlay-light))",
+          medium: "rgb(var(--color-overlay-medium))",
         },
         ink: "#141413",
         muted: "#5D6B7E",

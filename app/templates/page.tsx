@@ -58,9 +58,9 @@ function Card({ href, name, desc, tag }: { href: string; name: string; desc: str
   return (
     <Link
       href={href}
-      className="group rounded-2xl border border-white/[0.08] bg-base-raised p-6 no-underline shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_2px_10px_rgba(0,0,0,0.45)] transition hover:-translate-y-1 hover:border-moss/40"
+      className="group rounded-2xl border border-subtle bg-base-raised p-6 no-underline shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)] transition hover:-translate-y-1 hover:border-moss/40"
     >
-      <div className="mb-3 inline-block rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-moss">
+      <div className="mb-3 inline-block rounded-md border border-subtle bg-overlay-subtle px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-moss">
         {tag}
       </div>
       <h3 className="text-[18px] font-extrabold tracking-[-0.01em] text-fg">{name}</h3>

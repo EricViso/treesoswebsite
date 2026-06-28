@@ -142,9 +142,9 @@ export default function Company() {
             {model.map((m) => (
               <div
                 key={m.title}
-                className="rounded-2xl border border-white/[0.08] bg-base-raised p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_2px_10px_rgba(0,0,0,0.45)]"
+                className="rounded-2xl border border-subtle bg-base-raised p-6 shadow-[0_0_0_1px_rgba(var(--color-card-shadow-r), var(--color-card-shadow-g), var(--color-card-shadow-b), 0.04),0_2px_10px_rgba(0,0,0,0.45)]"
               >
-                <div className="mb-4 inline-block rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-moss">
+                <div className="mb-4 inline-block rounded-md border border-subtle bg-overlay-subtle px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-moss">
                   {m.tag}
                 </div>
                 <h3 className="text-[18px] font-bold tracking-[-0.01em] text-fg">{m.title}</h3>
@@ -194,7 +194,7 @@ export default function Company() {
           <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             The method is credible because we live it.
           </h2>
-          <ul className="mt-8 max-w-[64ch] divide-y divide-white/[0.06] border-y border-white/[0.06]">
+          <ul className="mt-8 max-w-[64ch] divide-y divide-border-subtle border-y border-subtle">
             {proof.map((p) => (
               <li key={p} className="flex items-start gap-3 py-4">
                 <span className="mt-0.5 font-mono text-moss">→</span>
@@ -251,7 +251,7 @@ export default function Company() {
       </section>
 
       {/* FOOTER */}
-      <footer className="relative overflow-hidden border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative overflow-hidden border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         {/* root-line accent */}
         <svg
           viewBox="0 0 1200 40"

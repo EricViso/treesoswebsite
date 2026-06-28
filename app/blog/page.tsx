@@ -18,7 +18,7 @@ const posts = [
     desc: "Those are not the same project. Five principles from rebuilding a real company around AI: memory, responsibility, decisions, and the closed loop that connects them.",
     href: "/blog/ai-native-company",
     tag: "Essay",
-    tagClass: "bg-white/10 text-fg-muted border-white/20",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
   },
   {
     date: "2026-06-25",
@@ -26,7 +26,7 @@ const posts = [
     desc: "The hard part of energy workforce isn't finding people. It's everything that happens after. What Boardy.ai's users taught us about the real product.",
     href: "/blog/ai-superconnector",
     tag: "Essay",
-    tagClass: "bg-white/10 text-fg-muted border-white/20",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
   },
   {
     date: "2026-06-24",
@@ -34,7 +34,7 @@ const posts = [
     desc: "Why the correction is a sales argument, not a threat. A market-grounded case for sovereign, vertical AI in energy and industrial sectors.",
     href: "/blog/ai-bubble-positioning",
     tag: "Essay",
-    tagClass: "bg-white/10 text-fg-muted border-white/20",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
   },
   {
     date: "2026-06-23",
@@ -58,7 +58,7 @@ const posts = [
     desc: "The secret that sets the best thinkers apart is not raw intelligence. It is the ability to reflect on their own thinking.",
     href: "/blog/metacognition",
     tag: "Essay",
-    tagClass: "bg-white/10 text-fg-muted border-white/20",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
   },
   {
     date: "2026-06-21",
@@ -66,7 +66,7 @@ const posts = [
     desc: "Most energy recruiters drown in noise. Here is why the signal lives in structured data, not keyword matching.",
     href: "/blog/signal-problem",
     tag: "Essay",
-    tagClass: "bg-white/10 text-fg-muted border-white/20",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
   },
   {
     date: "2026-06-23",
@@ -92,7 +92,7 @@ export default function Blog() {
       <TopNavDark variant="company" />
 
       {/* hero */}
-      <header className="relative overflow-hidden border-b border-white/[0.06] bg-base py-20">
+      <header className="relative overflow-hidden border-b border-subtle bg-base py-20">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(90%_90%_at_50%_0,#000_0%,transparent_70%)]"
@@ -145,7 +145,7 @@ export default function Blog() {
       </section>
 
       {/* footer */}
-      <footer className="relative border-t border-white/[0.06] bg-base-rail py-9 text-center text-[13px] text-fg-faint">
+      <footer className="relative border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <RootDivider className="absolute top-0" />
         <Container width="wide">
           <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
