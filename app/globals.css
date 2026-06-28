@@ -10,38 +10,39 @@ html {
  * Theme-aware color tokens.
  * Brand colors (navy, moss, ink, muted, canvas, line) stay fixed.
  * Surface, text, border, and overlay colors adapt to system preference.
+ * DARK MODE is the default (site was designed dark-first).
  */
 :root {
-  --color-base: 255 255 255;
-  --color-base-raised: 245 247 250;
-  --color-base-rail: 240 242 245;
-  --color-fg: 26 29 36;
-  --color-fg-muted: 107 114 128;
-  --color-fg-faint: 156 163 175;
-  --color-border-subtle: 0 0 0 / 0.08;
-  --color-overlay-subtle: 0 0 0 / 0.03;
-  --color-overlay-light: 0 0 0 / 0.06;
-  --color-overlay-medium: 0 0 0 / 0.10;
-  --color-card-shadow-r: 0;
-  --color-card-shadow-g: 0;
-  --color-card-shadow-b: 0;
+  --color-base: 10 14 22;
+  --color-base-raised: 16 24 42;
+  --color-base-rail: 13 20 34;
+  --color-fg: 231 236 243;
+  --color-fg-muted: 147 161 180;
+  --color-fg-faint: 92 107 128;
+  --color-border-subtle: 255 255 255 / 0.07;
+  --color-overlay-subtle: 255 255 255 / 0.03;
+  --color-overlay-light: 255 255 255 / 0.06;
+  --color-overlay-medium: 255 255 255 / 0.10;
+  --color-card-shadow-r: 255;
+  --color-card-shadow-g: 255;
+  --color-card-shadow-b: 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --color-base: 10 14 22;
-    --color-base-raised: 16 24 42;
-    --color-base-rail: 13 20 34;
-    --color-fg: 231 236 243;
-    --color-fg-muted: 147 161 180;
-    --color-fg-faint: 92 107 128;
-    --color-border-subtle: 255 255 255 / 0.07;
-    --color-overlay-subtle: 255 255 255 / 0.03;
-    --color-overlay-light: 255 255 255 / 0.06;
-    --color-overlay-medium: 255 255 255 / 0.10;
-    --color-card-shadow-r: 255;
-    --color-card-shadow-g: 255;
-    --color-card-shadow-b: 255;
+    --color-base: 255 255 255;
+    --color-base-raised: 245 247 250;
+    --color-base-rail: 240 242 245;
+    --color-fg: 26 29 36;
+    --color-fg-muted: 107 114 128;
+    --color-fg-faint: 156 163 175;
+    --color-border-subtle: 0 0 0 / 0.08;
+    --color-overlay-subtle: 0 0 0 / 0.03;
+    --color-overlay-light: 0 0 0 / 0.06;
+    --color-overlay-medium: 0 0 0 / 0.10;
+    --color-card-shadow-r: 0;
+    --color-card-shadow-g: 0;
+    --color-card-shadow-b: 0;
   }
 }
 
@@ -62,14 +63,14 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.02;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   body::before {
-    opacity: 0.035;
+    opacity: 0.02;
   }
 }
