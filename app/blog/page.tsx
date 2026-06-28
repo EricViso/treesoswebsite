@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    date: "2026-06-29",
+    title: "Almost Everyone Is Adding AI to Their Company. Almost No One Is Rebuilding Their Company Around It.",
+    desc: "Those are not the same project. Five principles from rebuilding a real company around AI: memory, responsibility, decisions, and the closed loop that connects them.",
+    href: "/blog/ai-native-company",
+    tag: "Essay",
+    tagClass: "bg-white/10 text-fg-muted border-white/20",
+  },
+  {
     date: "2026-06-25",
     title: "What an AI Superconnector Taught Us About Moving Workforces",
     desc: "The hard part of energy workforce isn't finding people. It's everything that happens after. What Boardy.ai's users taught us about the real product.",
