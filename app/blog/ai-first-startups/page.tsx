@@ -19,7 +19,7 @@ function P({ children, className }: { children: React.ReactNode; className?: str
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-4 mt-14 text-[22px] font-extrabold leading-[1.2] tracking-[-0.01em] text-fg first:mt-0">
+    <h2 className="font-display mb-4 mt-14 text-[22px] font-extrabold leading-[1.2] tracking-[-0.01em] text-fg first:mt-0">
       {children}
     </h2>
   );
@@ -27,7 +27,7 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function H3({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-2 mt-8 text-[17px] font-bold leading-[1.3] tracking-[-0.01em] text-fg">
+    <h3 className="font-display mb-2 mt-8 text-[17px] font-bold leading-[1.3] tracking-[-0.01em] text-fg">
       {children}
     </h3>
   );
@@ -257,7 +257,7 @@ export default function AIFirstStartupsArticle() {
               className="shrink-0 object-contain"
               aria-hidden
             />
-            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+            <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           </div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation

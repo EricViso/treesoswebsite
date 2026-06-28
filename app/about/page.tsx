@@ -93,7 +93,7 @@ export default function About() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // about
           </div>
-          <h1 className="mt-4 max-w-[20ch] text-[clamp(32px,5.6vw,62px)] font-black leading-[1.0] tracking-tightest text-fg">
+          <h1 className="font-display mt-4 max-w-[20ch] text-[clamp(32px,5.6vw,62px)] font-black leading-[1.0] tracking-tightest text-fg">
             Three builders. One operating system.
           </h1>
           <p className="mt-5 max-w-[56ch] text-[clamp(15px,2vw,18px)] leading-[1.6] text-fg-muted">
@@ -117,7 +117,7 @@ export default function About() {
                   {founder.initials}
                 </div>
 
-                <h2 className="text-[24px] font-extrabold tracking-[-0.01em] text-fg">
+                <h2 className="font-display text-[24px] font-extrabold tracking-[-0.01em] text-fg">
                   {founder.name}
                 </h2>
                 <div className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-moss">
@@ -185,7 +185,7 @@ export default function About() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // the origin
           </div>
-          <h2 className="mt-3 max-w-[22ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[22ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             Product meets infrastructure.
           </h2>
           <p className="mt-4 max-w-[58ch] text-[16px] leading-[1.6] text-fg-muted">
@@ -215,7 +215,7 @@ export default function About() {
           className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[680px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.16)_0%,transparent_60%)] blur-2xl"
         />
         <Container>
-          <h2 className="relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             Let&apos;s build something real.
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
@@ -258,7 +258,7 @@ export default function About() {
               className="shrink-0 object-contain"
               aria-hidden
             />
-            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">
+            <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">
               {brand.company}
             </div>
           </div>

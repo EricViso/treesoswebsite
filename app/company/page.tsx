@@ -93,7 +93,7 @@ export default function Company() {
               <div className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
                 // AI-first digital transformation
               </div>
-              <h1 className="text-[clamp(38px,6.4vw,68px)] font-black leading-[1.0] tracking-tightest text-fg">
+              <h1 className="font-display text-[clamp(38px,6.4vw,68px)] font-black leading-[1.0] tracking-tightest text-fg">
                 We use AI to be more <Hl>human.</Hl>
               </h1>
               <p className="mt-6 max-w-[60ch] text-[clamp(16px,2.2vw,19px)] leading-[1.6] text-fg-muted">
@@ -130,7 +130,7 @@ export default function Company() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />the model
           </div>
-          <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             Not a tool we sell. A business we rebuild and run.
           </h2>
           <p className="mt-4 max-w-[58ch] text-[16.5px] leading-[1.6] text-fg-muted">
@@ -164,7 +164,7 @@ export default function Company() {
               <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-moss">
                 <ForestNode size={11} className="mr-1.5 -mt-0.5" />exhibit A
               </div>
-              <h3 className="mt-2 text-[22px] font-extrabold tracking-[-0.01em] text-fg">
+              <h3 className="font-display mt-2 text-[22px] font-extrabold tracking-[-0.01em] text-fg">
                 Treelance. Our first transformation.
               </h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-fg-muted">
@@ -191,7 +191,7 @@ export default function Company() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />proof, not promises
           </div>
-          <h2 className="mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[22ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             The method is credible because we live it.
           </h2>
           <ul className="mt-8 max-w-[64ch] divide-y divide-border-subtle border-y border-subtle">
@@ -216,7 +216,7 @@ export default function Company() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />the horizon
           </div>
-          <h2 className="mt-3 max-w-[24ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[24ch] text-[clamp(26px,4vw,40px)] font-extrabold leading-[1.1] tracking-tightest text-fg">
             If the model holds, we don&apos;t stop at one industry.
           </h2>
           <p className="mt-4 max-w-[60ch] text-[16.5px] leading-[1.6] text-fg-muted">
@@ -236,7 +236,7 @@ export default function Company() {
           className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[680px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.16)_0%,transparent_60%)] blur-2xl"
         />
         <Container>
-          <h2 className="relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             Let&apos;s rebuild something.
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
@@ -277,7 +277,7 @@ export default function Company() {
               className="shrink-0 object-contain"
               aria-hidden
             />
-            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+            <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           </div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation

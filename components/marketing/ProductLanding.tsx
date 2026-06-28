@@ -48,7 +48,7 @@ function Kick({ children }: { children: ReactNode }) {
 
 function Head({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mt-3 max-w-[26ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+    <h2 className="font-display mt-3 max-w-[26ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
       {children}
     </h2>
   );
@@ -96,7 +96,7 @@ export function ProductLanding() {
             </div>
           ))}
         </div>
-        <p className="text-[clamp(19px,2.6vw,24px)] font-extrabold leading-[1.3] tracking-tightest text-fg">
+        <p className="font-display text-[clamp(19px,2.6vw,24px)] font-extrabold leading-[1.3] tracking-tightest text-fg">
           {c.problem.punch.split("Your recruiters")[0]}
           <Hl>Your recruiters{c.problem.punch.split("Your recruiters")[1]}</Hl>
         </p>
@@ -124,7 +124,7 @@ export function ProductLanding() {
                 {p.n}
               </div>
               <div>
-                <h3 className="mb-2 text-[20px] font-extrabold tracking-[-0.01em] text-fg">{p.title}</h3>
+                <h3 className="font-display mb-2 text-[20px] font-extrabold tracking-[-0.01em] text-fg">{p.title}</h3>
                 <p className="max-w-[64ch] text-[15.5px] text-fg-muted">{p.body}</p>
                 <span className="mt-3 inline-block rounded-full border border-moss/30 bg-moss/[0.08] px-3 py-[5px] font-mono text-[11.5px] font-medium text-moss">
                   {p.tag}
@@ -186,7 +186,7 @@ export function ProductLanding() {
             </div>
           ))}
         </div>
-        <p className="border-l-[3px] border-moss py-1.5 pl-[18px] text-[clamp(18px,2.6vw,22px)] font-extrabold tracking-tightest text-fg">
+        <p className="border-l-[3px] border-moss py-1.5 pl-[18px] text-[clamp(18px,2.6vw,22px)] font-display font-extrabold tracking-tightest text-fg">
           {c.payoff.line}
         </p>
       </Section>
@@ -218,7 +218,7 @@ export function ProductLanding() {
             </div>
           ))}
         </div>
-        <p className="mt-6 max-w-[34ch] text-[clamp(17px,2.4vw,21px)] font-bold tracking-[-0.01em] text-fg">
+        <p className="font-display mt-6 max-w-[34ch] text-[clamp(17px,2.4vw,21px)] font-bold tracking-[-0.01em] text-fg">
           No autonomous matching. No black box. <Hl>A human approves every step that touches a person.</Hl>
         </p>
       </Section>
@@ -291,7 +291,7 @@ export function ProductLanding() {
         />
         <Container>
           <Kick>let&apos;s begin</Kick>
-          <h2 className="relative mx-auto mt-3 max-w-[22ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display relative mx-auto mt-3 max-w-[22ch] text-[clamp(24px,3.6vw,34px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             Bring us one open role. We&apos;ll show you the matching live.
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">

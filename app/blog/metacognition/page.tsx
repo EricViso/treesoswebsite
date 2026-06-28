@@ -326,7 +326,7 @@ export default function MetacognitionArticle() {
               className="shrink-0 object-contain"
               aria-hidden
             />
-            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+            <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           </div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation

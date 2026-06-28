@@ -126,7 +126,7 @@ export default function Services() {
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />
             Services
           </div>
-          <h1 className="max-w-[18ch] text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
+          <h1 className="font-display max-w-[18ch] text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
             We build AI agents. Real ones, on your infrastructure.
           </h1>
           <p className="mt-4 max-w-[56ch] text-[16.5px] text-fg-muted">
@@ -159,7 +159,7 @@ export default function Services() {
                   // {s.tag}
                 </div>
 
-                <h2 className="text-[22px] font-extrabold tracking-[-0.01em] text-fg">
+                <h2 className="font-display text-[22px] font-extrabold tracking-[-0.01em] text-fg">
                   {s.title}
                 </h2>
                 <div className="mt-1 text-[14px] font-medium text-fg-muted">{s.subtitle}</div>
@@ -221,7 +221,7 @@ export default function Services() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // why us
           </div>
-          <h2 className="mt-3 max-w-[20ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[20ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             We sell the system, not the instance.
           </h2>
           <p className="mt-4 max-w-[56ch] text-[16px] leading-[1.6] text-fg-muted">
@@ -252,7 +252,7 @@ export default function Services() {
           <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             // how it works
           </div>
-          <h2 className="mt-3 max-w-[20ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display mt-3 max-w-[20ch] text-[clamp(24px,3.6vw,38px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             From conversation to running system.
           </h2>
 
@@ -281,7 +281,7 @@ export default function Services() {
             ].map((phase) => (
               <div key={phase.step}>
                 <div className="font-mono text-[13px] font-bold text-moss">{phase.step}</div>
-                <h3 className="mt-2 text-[18px] font-extrabold tracking-[-0.01em] text-fg">
+                <h3 className="font-display mt-2 text-[18px] font-extrabold tracking-[-0.01em] text-fg">
                   {phase.title}
                 </h3>
                 <p className="mt-2 text-[14px] leading-[1.6] text-fg-muted">{phase.body}</p>
@@ -299,7 +299,7 @@ export default function Services() {
           className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[680px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,180,81,.16)_0%,transparent_60%)] blur-2xl"
         />
         <Container>
-          <h2 className="relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
+          <h2 className="font-display relative mx-auto max-w-[22ch] text-[clamp(24px,3.6vw,36px)] font-extrabold leading-[1.12] tracking-tightest text-fg">
             Ready to stop routing and start building?
           </h2>
           <p className="relative mx-auto mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
@@ -330,7 +330,7 @@ export default function Services() {
               className="shrink-0 object-contain"
               aria-hidden
             />
-            <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+            <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           </div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation

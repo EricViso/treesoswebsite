@@ -105,7 +105,7 @@ export default function Blog() {
           <div className="mb-4 font-mono text-[12px] font-semibold uppercase tracking-[0.18em] text-moss">
             <ForestNode size={11} className="mr-1.5 -mt-0.5" />Notes
           </div>
-          <h1 className="max-w-[16ch] text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
+          <h1 className="font-display max-w-[16ch] text-[clamp(30px,4.6vw,48px)] font-black leading-[1.04] tracking-tightest text-fg">
             Occasional writing from Trees OS.
           </h1>
           <p className="mt-4 max-w-[50ch] text-[16.5px] text-fg-muted">
@@ -130,7 +130,7 @@ export default function Blog() {
                     </span>
                     <time className="font-mono text-[12px] text-fg-faint">{p.date}</time>
                   </div>
-                  <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-fg group-hover:text-moss transition-colors">
+                  <h2 className="font-display mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-fg group-hover:text-moss transition-colors">
                     {p.title}
                   </h2>
                   <p className="mt-2 text-[15px] leading-[1.6] text-fg-muted">{p.desc}</p>
@@ -148,7 +148,7 @@ export default function Blog() {
       <footer className="relative border-t border-subtle bg-base-rail py-9 text-center text-[13px] text-fg-faint">
         <RootDivider className="absolute top-0" />
         <Container width="wide">
-          <div className="text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
+          <div className="font-display text-[17px] font-black tracking-[-0.01em] text-fg">{brand.company}</div>
           <div className="my-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-moss">
             AI-first digital transformation
           </div>
