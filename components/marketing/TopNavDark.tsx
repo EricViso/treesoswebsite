@@ -17,7 +17,9 @@ export function TopNavDark({
   return (
     <nav className="sticky top-0 z-30 border-b border-white/[0.07] bg-base/80 backdrop-blur-md">
       <Container width="wide" className="flex h-[58px] items-center gap-2">
-        <Wordmark variant={variant} />
+        <a href="/" className="no-underline">
+          <Wordmark variant={variant} />
+        </a>
         <span className="flex-1" />
         {variant === "product" ? (
           <>
