@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   title: "The model is a commodity. The loop is the company. · Trees OS",
   description:
     "Token capital does not get decreed. It exists only if the tokens you spend produce a return. Build the loop. Own something.",
+  openGraph: {
+    title: "The model is a commodity. The loop is the company. · Trees OS",
+    description:
+      "Token capital does not get decreed. It exists only if the tokens you spend produce a return. Build the loop. Own something.",
+    type: "article",
+    images: [{ url: "/images/trees-os-logo.png", width: 1024, height: 1024 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The model is a commodity. The loop is the company. · Trees OS",
+    description:
+      "Token capital does not get decreed. It exists only if the tokens you spend produce a return. Build the loop. Own something.",
+    images: [{ url: "/images/trees-os-logo.png", width: 1024, height: 1024 }],
+  },
 };
 
 function P({ children, className }: { children: React.ReactNode; className?: string }) {

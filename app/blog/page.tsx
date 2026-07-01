@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   title: `Notes — ${brand.company}`,
   description:
     "Occasional writing from Trees OS. Ideas, reflections, the occasional letter.",
+  openGraph: {
+    title: `Notes — ${brand.company}`,
+    description:
+      "Occasional writing from Trees OS. Ideas, reflections, the occasional letter.",
+    type: "website",
+    images: [{ url: "/images/trees-os-logo.png", width: 1024, height: 1024 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Notes — ${brand.company}`,
+    description:
+      "Occasional writing from Trees OS. Ideas, reflections, the occasional letter.",
+    images: [{ url: "/images/trees-os-logo.png", width: 1024, height: 1024 }],
+  },
 };
 
 const posts = [
