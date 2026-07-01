@@ -13,6 +13,14 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    date: "2026-07-01",
+    title: "The model is a commodity. The loop is the company.",
+    desc: "Token capital does not get decreed. It exists only if the tokens you spend produce a return. Build the loop. Own something.",
+    href: "/blog/model-is-commodity-loop-is-company",
+    tag: "Essay",
+    tagClass: "bg-overlay-medium text-fg-muted border-subtle",
+  },
+  {
     date: "2026-06-29",
     title: "Almost Everyone Is Adding AI to Their Company. Almost No One Is Rebuilding Their Company Around It.",
     desc: "Those are not the same project. Five principles from rebuilding a real company around AI: memory, responsibility, decisions, and the closed loop that connects them.",
@@ -45,6 +53,22 @@ const posts = [
     tagClass: "bg-amber/15 text-amber border-amber/30",
   },
   {
+    date: "2026-06-23",
+    title: "The Agent Question",
+    desc: "A real AI agent isn't a chatbot. Memory, tools, a governor, an approval loop. And why you shouldn't sell it to consumers.",
+    href: "/blog/agent-question/",
+    tag: "Manifesto",
+    tagClass: "bg-amber/15 text-amber border-amber/30",
+  },
+  {
+    date: "2026-06-22",
+    title: "Night Journal, 22 June",
+    desc: "You opened tonight by building. You closed it by telling the truth. That is the whole story, and it is a good one.",
+    href: "/blog/night-journal/",
+    tag: "Journal",
+    tagClass: "bg-amber/15 text-amber border-amber/30",
+  },
+  {
     date: "2026-06-21",
     title: "The Secret Superpower Behind AI",
     desc: "A Father's Day letter about metacognition, thinking, and using AI wisely. For Romeo, from Papa.",
@@ -67,22 +91,6 @@ const posts = [
     href: "/blog/signal-problem",
     tag: "Essay",
     tagClass: "bg-overlay-medium text-fg-muted border-subtle",
-  },
-  {
-    date: "2026-06-23",
-    title: "The Agent Question",
-    desc: "A real AI agent isn't a chatbot. Memory, tools, a governor, an approval loop. And why you shouldn't sell it to consumers.",
-    href: "/blog/agent-question/",
-    tag: "Manifesto",
-    tagClass: "bg-amber/15 text-amber border-amber/30",
-  },
-  {
-    date: "2026-06-22",
-    title: "Night Journal, 22 June",
-    desc: "You opened tonight by building. You closed it by telling the truth. That is the whole story, and it is a good one.",
-    href: "/blog/night-journal/",
-    tag: "Journal",
-    tagClass: "bg-amber/15 text-amber border-amber/30",
   },
 ];
 
